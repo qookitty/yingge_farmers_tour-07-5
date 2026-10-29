@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#155c50"><title>鶯歌農會・整合行程地圖 V7.5</title>
+<style>
+:root{--green:#155c50;--bg:#f3f6f8;--line:#dbe4e7;--text:#213441;--muted:#596d78}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,'Microsoft JhengHei',sans-serif}button,input,select,textarea{font:inherit}button,.btn{min-height:46px;padding:8px 12px;border:1px solid var(--line);border-radius:10px;background:white;color:var(--text);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:6px}button:hover,.btn:hover{background:#e9f5f0}button.active{background:var(--green);color:#fff}button:disabled{opacity:.5;cursor:wait}:focus-visible{outline:3px solid #e9a600;outline-offset:3px}header{background:var(--green);color:white;padding:20px max(16px,calc((100vw - 1320px)/2))}h1{font-size:clamp(21px,3vw,29px);margin:0}h2{font-size:21px;margin:0 0 12px}h3{font-size:18px;margin:0 0 6px}p{margin:6px 0 12px}.muted,small{color:var(--muted)}header small{color:#dcefe7}nav.top{position:sticky;top:0;background:#fff;padding:8px 16px;display:flex;gap:6px;overflow:auto;z-index:1200;border-bottom:1px solid var(--line)}nav button{white-space:nowrap}main{max-width:1350px;padding:16px;margin:auto}.card{background:white;padding:16px;border:1px solid var(--line);border-radius:16px;margin-bottom:14px}.bar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:12px}.bar label{display:flex;align-items:center;gap:6px}select,input:not([type=checkbox]),textarea{min-height:46px;border:1px solid var(--line);border-radius:9px;padding:8px;max-width:100%;background:#fff}textarea{width:100%;min-height:80px}input[type=search]{width:100%}.grid{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(290px,1fr);gap:16px}.mapHost{position:relative;min-width:0;height:clamp(350px,68dvh,740px);border-radius:14px;overflow:hidden;border:1px solid var(--line)}.canvas{height:100%;width:100%}.mapHost iframe{border:0;height:100%;width:100%}.mapMessage{position:absolute;inset:0;display:grid;place-items:center;padding:22px;text-align:center;background:#f5faf7;z-index:600}.note{background:#fff7e5;border-left:4px solid #d79b29;padding:10px;border-radius:8px;font-size:14px;margin:10px 0}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.stat{border:1px solid var(--line);border-radius:12px;padding:12px}.stat strong{display:block;font-size:24px;color:var(--green)}.daycard{border-left:5px solid var(--c);padding:12px;background:#f7fafb;border-radius:10px;margin:10px 0}.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:14px;margin:8px 0}.legend i{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:5px}.stop{width:100%;justify-content:flex-start;text-align:left;margin:4px 0;gap:9px}.stop.selected{outline:2px solid var(--green);background:#eaf5ef}.num{min-width:34px;height:34px;color:white;background:var(--c);border-radius:10px;display:grid;place-items:center;font-weight:700;font-size:12px}.stop small{display:block}.list{max-height:40dvh;overflow:auto}.info{border-top:1px solid var(--line);padding-top:12px;margin-top:12px}.badge{display:inline-block;background:#eaf0f4;border-radius:6px;padding:2px 7px;font-size:12px}.timeline article{border-left:4px solid var(--c);padding:12px;margin:10px 0;background:#f7fafb;border-radius:8px}.timelineGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.tw{overflow:auto}table{border-collapse:collapse;width:100%;font-size:14px}td,th{padding:10px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}th{background:#edf4f1}tr[data-stop]{cursor:pointer}tr.selected{background:#eaf5ef}.settings label{display:block;margin:12px 0}.settings input[type=text],.settings input[type=password],.settings input[type=range],.settings select{width:100%}.settings details{margin:12px 0}.mk{cursor:pointer}.pin{height:38px;width:38px;display:grid;place-items:center;background:var(--c);border:3px solid white;border-radius:50%;color:white;box-shadow:0 2px 7px #0005;position:relative;font-weight:700;font-size:12px;transition:transform .15s}.pin.square{border-radius:9px}.pin.drop{border-radius:50% 50% 50% 6px}.pin em{font-style:normal;font-size:17px}.pin b{position:absolute;right:-8px;top:-8px;background:var(--d);border:2px solid white;color:white;font:700 10px/16px system-ui;min-width:20px;border-radius:12px;padding:0 2px}.mk:hover .pin{transform:scale(1.15)}.mk.sel .pin{outline:3px solid #e7ab00;transform:scale(1.15)}.pop{background:white;border-radius:12px;box-shadow:0 3px 12px #0004;padding:12px;max-width:270px;min-width:220px;font-size:14px}.leaflet-popup-content,.maplibregl-popup-content{line-height:1.6;font-family:inherit}.sheetTitle{display:flex;justify-content:space-between;align-items:center;gap:8px}.collapsed .list{display:none}.bottom{display:none}footer{text-align:center;color:var(--muted);font-size:13px;padding:18px}.toast{position:fixed;bottom:85px;left:50%;transform:translateX(-50%);background:#173c35;color:#fff;border-radius:12px;padding:10px 16px;z-index:4000;max-width:90%;display:none}#more{position:fixed;inset:0;background:#0007;z-index:2500;display:flex;align-items:flex-end}#more[hidden]{display:none}#more>div{width:100%;background:white;border-radius:20px 20px 0 0;padding:18px 16px calc(85px + env(safe-area-inset-bottom));max-height:85dvh;overflow:auto}#more button{display:flex;width:100%;margin:6px 0}.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}@media(max-width:950px){.timelineGrid{grid-template-columns:1fr}.grid{grid-template-columns:minmax(0,1.2fr) minmax(270px,1fr)}}@media(max-width:700px){body{padding-bottom:calc(72px + env(safe-area-inset-bottom))}nav.top{display:none}main{padding:10px}.grid{display:flex;flex-direction:column}.card{padding:12px}.mapHost{height:48dvh;min-height:300px}.bottom{display:flex;position:fixed;bottom:0;left:0;right:0;background:white;z-index:3000;padding:6px 4px calc(6px + env(safe-area-inset-bottom));box-shadow:0 -2px 12px #0002;gap:2px}.bottom button{flex:1;min-width:0;border:0;font-size:11px;padding:6px 1px;flex-direction:column;line-height:1.4}.bottom span{font-size:21px}.stats{gap:5px}.stat{padding:8px;font-size:13px}.stat strong{font-size:20px}.list{max-height:32dvh}.tw table thead{display:none}.tw tr{display:block;border:1px solid var(--line);border-radius:10px;margin:8px 0;padding:8px}.tw td{display:block;border:0;padding:3px}.tw td:before{content:attr(data-label)'：';color:var(--muted)}header{padding:16px}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style></head><body><header><h1>鶯歌農會・台灣巡禮整合版</h1><small>多引擎地圖 × 每日路線 × 華語／台語／客語朗讀與同步高亮 × 手機橫向專屬版面｜V7.5</small></header><nav class="top" aria-label="主選單"></nav><main>
+<section id="overview"><div class="card"><h2>台灣巡禮・行程全貌</h2><p>鶯歌南下嘉義與台南，再經北港返回鶯歌。三天路線以不同顏色呈現。</p><div class="stats"><div class="stat"><strong>3天2夜</strong>觀摩與文化行程</div><div class="stat"><strong>14站</strong>具名地點，午餐待通知</div><div class="stat"><strong>2梯次</strong>10/27–29、11/2–4</div></div></div><div class="card"><div class="mapbar"></div><div class="days bar"></div><div class="bar"><button data-fit="overview">⌖ 所選全程</button><button id="island">🏝 台灣全島</button><label><input class="routeToggle" type="checkbox" checked>顯示順序連線</label></div><div class="grid"><div><div class="mapHost" id="ovMap"></div><div class="legend"></div><p class="note">路線為站點順序示意，不是實際行車道路；不據此估算里程或車程。概略座標與有疑義的店址仍待主辦單位確認。</p></div><aside><div id="routeCards"></div><div class="info" id="ovInfo" aria-live="polite"></div></aside></div></div><div class="card"><h2>三天路線時間軸</h2><div id="allTimeline" class="timelineGrid"></div></div></section>
+<section id="cal" hidden><div class="card"><h2>行事曆與地圖</h2><div class="bar"><label>梯次<select id="batch"><option value="0">第1梯次 10/27–10/29</option><option value="1">第2梯次 11/2–11/4</option></select></label></div><div class="days bar"></div><div class="mapbar"></div><div class="grid"><div><div class="mapHost" id="calMap"></div><div class="bar" style="margin-top:10px"><button data-step="-1">◀ 上一站</button><button data-step="1">下一站 ▶</button><button data-fit="cal">⌖ 全程</button></div></div><aside><div id="dayTimeline" class="timeline list"></div><div id="calInfo" class="info" aria-live="polite"></div></aside></div></div></section>
+<section id="mapx" hidden><div class="card"><h2>地圖與地點互動</h2><div class="mapbar"></div><div class="days bar"></div><div class="bar"><label>類型<select id="type"><option value="">全部類型</option></select></label><button data-fit="mapx">⌖ 顯示範圍</button><button id="locate">📍 我的位置</button></div><div class="grid"><div class="mapHost" id="mxMap"></div><aside id="listPanel"><div class="sheetTitle"><h3 id="count">地點清單</h3><button id="fold" aria-controls="stopList" aria-expanded="true">收合清單</button></div><input id="search" type="search" placeholder="搜尋地點、地址、電話" aria-label="搜尋地點"><div id="stopList" class="list"></div><div id="mxInfo" class="info" aria-live="polite"></div></aside></div></div></section>
+<section id="table" hidden><div class="card"><h2>地點、店址與電話</h2><div class="days bar"></div><p class="muted">點地點列可前往地圖；按電話或外部地圖連結不切換頁面。</p><div class="tw"><table><thead><tr><th>日/站</th><th>地點</th><th>地址</th><th>電話</th><th>資料狀態</th><th>連結</th></tr></thead><tbody id="rows"></tbody></table></div><div class="bar"><button id="csv">下載CSV</button><button id="ics">下載三天行事曆 ICS</button></div></div></section>
+<section id="guide" hidden><div class="card"><h2>報名與行前資訊</h2><p>新北市鶯歌區農會｜新北市鶯歌區建國路66號7樓</p><a class="btn" href="tel:0226706262">📞 02-26706262</a> 分機822<p>報名：2026/10/7–10/8，08:30–16:00；現場報名，每梯180名。首日06:00出發，實際上車點依農會通知。</p><p>會員3,000元；配偶或家屬7,000元。資格與陪同人數限制依農會確認。</p><p class="note">出發前10日內取消的退費比例未載明。85歲以上保險安排、住宿及餐廳請事先確認；冒名參加將依表單規定取消資格且不退費。</p></div><div class="card"><h2>費用與試算</h2><div class="bar"><label>會員<input id="nm" type="number" value="1" min="0" max="180" style="width:75px"></label><label>家屬<input id="nf" type="number" value="1" min="0" max="180" style="width:75px"></label></div><h3 id="total" aria-live="polite"></h3><svg id="costChart" viewBox="0 0 600 150" style="width:100%;max-width:650px" aria-label="會員3000元、家屬7000元費用比較"></svg><p class="muted">試算不代表可報名名額；未包含表單未列明的額外需求費用。</p></div><div class="card"><h2>行前攜帶清單</h2><div id="checks"></div></div><div class="card"><h2>報名表欄位</h2><p>姓名、身分證字號、出生年月日、住址、電話、梯次、房間別、同房者、素食／早齋、上車地點、緊急聯絡人。此頁不收集或儲存敏感報名資料。</p></div></section>
+<section id="settings" hidden><div class="card settings"><h2>介面與地圖設定</h2><label>文字大小<select id="font"><option value="16">標準</option><option value="18">大字</option><option value="20">特大</option></select></label><label>標記<select id="marker"><option value="drop">水滴</option><option value="dot">圓點</option><option value="icon">圖示</option><option value="square">方塊</option></select></label><label>配色<select id="color"><option value="day">依天數</option><option value="type">依類型</option></select></label><label><input type="checkbox" id="motion">減少地圖移動效果</label><label><input type="checkbox" id="labels">標記名稱提示</label><label>手機橫向專屬版面<select id="lsMode"><option value="auto">自動（手機橫向時啟用）</option><option value="on">橫向時一律啟用</option><option value="off">關閉</option></select></label><details><summary>API金鑰（進階）</summary><label>Google Maps API key<input id="gkey" type="password" autocomplete="off"></label><label>Map8 API key<input id="mkey" type="password" autocomplete="off"></label><button id="saveKeys">儲存金鑰並重新整理</button><button id="clearKeys">清除金鑰</button><p class="note">本機儲存不是加密。瀏覽器金鑰仍可被讀取，請設定來源、API與配額限制。Google與Map8依服務方案可能需要計費／授權。</p></details></div>
+<div class="card settings" id="ttsCard"><h2>語音朗讀</h2><p class="muted" id="ttsSupport"></p>
+<label>朗讀語言<select id="ttsLang"><option value="zh">華語（國語）</option><option value="nan">台語（閩南語）</option><option value="hak">客語（客家話）</option></select></label>
+<label id="hakkaWrap">客語腔調（外部客語服務使用）<select id="ttsHakka"><option value="sixian">四縣</option><option value="hailu">海陸</option><option value="dapu">大埔</option><option value="raoping">饒平</option><option value="zhaoan">詔安</option></select></label>
+<label>偏好聲音性別（會記住）<select id="ttsGender"><option value="auto">自動</option><option value="f">女聲</option><option value="m">男聲</option></select></label>
+<label>裝置語音（每種語言各自記住）<select id="ttsVoice"></select></label><p class="muted" id="ttsVoiceInfo" aria-live="polite"></p>
+<label>音調（會記住）：<output id="ttsPitchOut"></output><input id="ttsPitchSet" type="range" min="0.5" max="1.5" step="0.05"></label><div class="bar"><button type="button" data-pitch="0.8">低音</button><button type="button" data-pitch="1">標準</button><button type="button" data-pitch="1.2">高音</button></div>
+<label>速度（會記住）：<output id="ttsRateOut"></output><input id="ttsRateSet" type="range" min="0.6" max="1.6" step="0.1"></label><label>音量：<output id="ttsVolOut"></output><input id="ttsVolSet" type="range" min="0.2" max="1" step="0.1"></label>
+<fieldset class="settings" style="border:1px solid var(--line);border-radius:12px;margin:12px 0"><legend>台語（公開服務）</legend>
+<label style="margin:6px 0"><input type="checkbox" id="ttsNanApi"> 裝置沒有台語語音時，使用意傳科技「媠聲」公開台語語音服務（免金鑰、有限速）</label>
+<label>公開服務只吃臺羅，漢字內容怎麼處理<select id="ttsNanRest"><option value="zh">站名用台語、其餘改用華語朗讀（建議）</option><option value="han">整段漢字都送公開服務（可能被截斷或唸錯）</option></select></label>
+<p class="muted">此服務由意傳科技提供，網站標示資源有限：同一 IP 一分鐘內最多下載 3 句音檔，單句約 25 秒；本頁會自動排隊等待。客語目前沒有「免費、免申請」的公開服務：客委會客語語音合成 API 需向維管單位申請並經核准，限政府機關、學校與公益團體，帳密不可轉授權或放在網頁裡。</p></fieldset>
+<label>找不到台語／客語語音時<select id="ttsFallback"><option value="zh">改用華語朗讀（並提示）</option><option value="none">不朗讀，只提示</option></select></label>
+<label><input type="checkbox" id="ttsHl"> 朗讀時同步高亮文字</label><label><input type="checkbox" id="ttsScroll"> 高亮移動時自動捲動</label>
+<label><input type="checkbox" id="ttsKeep"> 背景／切換分頁時保持朗讀（播放靜音音訊並顯示鎖定畫面控制）</label><label><input type="checkbox" id="ttsWake"> 朗讀時保持螢幕不熄滅（較耗電）</label>
+<label><input type="checkbox" id="ttsAuto"> 點選地點時自動朗讀</label><label><input type="checkbox" id="ttsFollow"> 逐站朗讀時，地圖跟著移動</label><label><input type="checkbox" id="ttsNotes"> 朗讀備註與「座標待確認」提醒</label>
+<div class="bar"><button type="button" id="ttsTest">🔊 測試目前語言</button><button type="button" id="ttsExport">匯出語音偏好</button><button type="button" id="ttsImport">匯入語音偏好</button><button type="button" id="ttsResetPrefs">重設語音偏好</button></div><input type="file" id="ttsFile" accept="application/json" hidden><p class="muted" id="ttsSaved" aria-live="polite"></p>
+<details><summary>進階：自備語音服務與逐站文稿</summary><div id="ttsAdv"></div></details>
+<p class="muted">語音由你的瀏覽器與裝置提供，品質與可用語言因系統而異。瀏覽器不會提供「男聲／女聲」資料，本頁依語音名稱推測；找不到符合的語音時，會用音調近似，不保證像真人。背景播放受手機系統限制，無法保證在所有瀏覽器都不中斷。</p></div>
+<div class="card settings"><h2>資料管理與座標校核</h2><p>不再讓所有使用者自動批次呼叫公共定位服務。維護者可逐站輸入已核對座標，並標示人工確認。</p><label>地點<select id="editStop"></select></label><div class="bar"><label>緯度<input id="lat" type="number" step="any" style="width:145px"></label><label>經度<input id="lng" type="number" step="any" style="width:145px"></label></div><label><input id="verified" type="checkbox">已人工核對此座標</label><button id="saveCoord">儲存此站座標</button><button id="resetCoord">還原此站</button><hr><label><input type="checkbox" id="includeKeys">備份包含API金鑰（預設不包含）</label><div class="bar"><button id="backup">匯出設定</button><button id="import">匯入設定</button><button id="reset">重設本版資料</button></div><input id="file" type="file" accept="application/json" hidden></div><div class="card settings"><h2>版本更新</h2><p>目前版本：<strong>7.5.0</strong></p><label>更新來源HTML網址<input id="updateURL" type="text" placeholder="https://你的網站/整合版.html"></label><button id="checkUpdate">檢查更新</button><div id="updateResult" role="status"></div><p class="muted">需部署至HTTPS或來源允許CORS。本版只比對版本並提供新版連結，不刪除同源其他快取、Service Worker，亦不執行下載的程式碼。</p></div></section>
+</main><footer>活動內容以農會通知為準｜需網路載入地圖套件及圖磚｜路線為順序示意，非道路導航</footer>
+<div id="ls" hidden aria-label="手機橫向地圖版面"><div class="lsRail" role="toolbar" aria-label="橫向工具列"><button type="button" id="lsPanelBtn" aria-pressed="false" aria-label="地點清單與資訊">☰</button><button type="button" id="lsFit" aria-label="顯示完整路線">⌖</button><button type="button" data-speak="scope" aria-pressed="false" aria-label="朗讀目前地點或行程">🔊</button><button type="button" id="lsMenuBtn" aria-haspopup="true" aria-expanded="false" aria-label="更多功能與地圖設定">⋯</button></div><div class="lsMapWrap"><div id="lsMap" class="lsMap"></div><div class="lsDays" id="lsDays" role="group" aria-label="選擇日期"></div><div class="lsBottom"><button type="button" id="lsPrev" aria-label="上一站">◀</button><div class="lsNow" id="lsNow" tabindex="0" role="button" aria-label="開啟地點清單"></div><button type="button" id="lsNext" aria-label="下一站">▶</button></div><aside class="lsPanel" id="lsPanel" hidden aria-label="地點清單與資訊"><div class="lsHead"><strong id="lsCount">地點清單</strong><button type="button" id="lsClose" aria-label="關閉清單">✕</button></div><input id="lsSearch" type="search" placeholder="搜尋地點、地址、電話" aria-label="搜尋地點"><div class="lsList" id="lsList"></div><div class="lsInfo info" id="lsInfo" aria-live="polite"></div></aside><div class="lsMenu" id="lsMenu" hidden><div class="mapbar"></div><div class="bar"><button type="button" data-speak="day">🔊 朗讀本日／全貌</button><button type="button" data-speak="page">🔊 朗讀本頁</button></div><div class="bar"><button type="button" data-lspage="table">📋 地點表</button><button type="button" data-lspage="guide">🎒 行前／費用</button><button type="button" data-lspage="settings">⚙ 設定</button></div><button type="button" id="lsMenuClose">關閉選單</button></div></div></div>
+<nav class="bottom" aria-label="手機選單"></nav><div id="more" hidden role="dialog" aria-modal="true" aria-label="更多功能"><div><h2>更多功能</h2><button data-page="table">📋 地點表／匯出</button><button data-page="guide">🎒 費用與行前資訊</button><button data-page="settings">⚙ 設定／資料／更新</button><button id="closeMore">關閉</button></div></div><div class="toast" role="status" id="toast"></div>
+<div id="tts" hidden role="region" aria-label="語音朗讀控制"><div class="ttsRow"><div class="ttsText" id="ttsText" aria-live="polite"></div><button type="button" id="ttsPrev" aria-label="上一站">⏮</button><button type="button" id="ttsPlay" aria-label="暫停">⏸</button><button type="button" id="ttsNext" aria-label="下一站">⏭</button><button type="button" id="ttsStop" aria-label="停止朗讀">⏹</button></div><div class="ttsRow ttsOpts"><select id="ttsLangQ" aria-label="朗讀語言"><option value="zh">華語</option><option value="nan">台語</option><option value="hak">客語</option></select><select id="ttsGenderQ" aria-label="聲音性別"><option value="auto">性別自動</option><option value="f">女聲</option><option value="m">男聲</option></select><select id="ttsPitchQ" aria-label="音調"><option value="0.8">低音</option><option value="1">標準音</option><option value="1.2">高音</option><option value="1.4">更高音</option></select><select id="ttsRate" aria-label="朗讀速度"><option value="0.8">0.8×</option><option value="1">1×</option><option value="1.2">1.2×</option><option value="1.5">1.5×</option></select></div></div>
+<script>
+
+'use strict';const APP_VERSION='7.5.0';const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];const KEY='yingge-v7';const defaults={engine:'leaflet',base:'osm',font:16,marker:'drop',color:'day',motion:false,labels:true,batch:0,gkey:'',mkey:'',coords:{},checks:{},updateURL:''};let P;try{P={...defaults,...JSON.parse(localStorage.getItem(KEY)||'{}')}}catch(e){P=structuredClone(defaults)}
+const C=['#1565c0','#ad4500','#763db2'],TC={集合:'#526d7a',景點:'#237d4a',休息:'#526d7a',考察:'#b96200',住宿:'#763db2',晚餐:'#b8323d'},IC={集合:'🚌',景點:'📸',休息:'☕',考察:'🌾',住宿:'🏨',晚餐:'🍽'};
+const raw=[
+[['鶯歌區農會','新北市鶯歌區建國路66號','02-26706262',24.9535,121.3445,'集合','首日06:00，實際上車點依里別通知',1],['湖口好客文創園區','新竹縣湖口鄉中平路一段510號','03-5905939',24.9006,121.0455,'景點','電話分機33；店址電話沿用前版，待確認',1],['泰安服務區（南下）','臺中市后里區安眉路113號','04-25572100',24.3288,120.717,'休息','停靠方向依主辦通知，座標仍需核對',1],['中埔鄉農會','嘉義縣中埔鄉中埔村中正路75號','05-2532201',23.4115,120.5225,'考察','本部地址，實際參訪據點待確認',1],['品皇咖啡觀光工廠','嘉義縣水上鄉大崙村155號','05-3713899',23.4285,120.3935,'景點','新舊館址資料不同，參訪處待確認',1],['嘉義皇品國際酒店','嘉義市西區自由路468號','05-2341777',23.492622,120.432586,'住宿','依表上皇品大飯店名稱推測，待確認',0]],
+[['台江國家公園遊客中心','臺南市安南區四草大道118號','06-2842600',23.0255,120.1525,'景點','座標概略，待核對',1],['四草綠色隧道','臺南市安南區大眾路360號','06-2840959',23.01959,120.13633,'景點','乘船安排依主辦通知',0],['七股區農會','臺南市七股區大埕里272號','06-7871711',23.1393,120.069,'考察','實際參訪處待確認',1],['安平老街','臺南市安平區延平街','',23.0015,120.1608,'景點','街區無統一店家電話',1],['台糖長榮酒店（台南）','臺南市東區中華東路三段336巷1號','06-2899988',22.9855,120.2316,'住宿','晚餐、住宿，座標概略',1]],
+[['國立臺灣歷史博物館','臺南市安南區長和路一段250號','06-3568889',23.058373,120.23498,'景點','開放安排依主辦通知',0],['北港朝天宮','雲林縣北港鎮中山路178號','05-7832055',23.5693,120.3025,'景點','座標概略',1],['市民農園休閒餐廳','新北市鶯歌區環河路173號之1','02-26777378',24.956,121.356,'晚餐','依照片字跡辨識，餐廳仍待確認',1]]];
+const titles=['北部出發・南下嘉義','台南生態・農業與老街','歷史文化・北港返鶯'];const area=['鶯歌 → 湖口 → 后里 → 中埔 → 水上 → 嘉義','台江 → 四草 → 七股 → 安平 → 台南東區','台南 → 北港 → 鶯歌'];const stops=raw.flatMap((d,day)=>d.map((r,i)=>({id:`d${day+1}s${i+1}`,day,n:i+1,name:r[0],address:r[1],phone:r[2],lat0:r[3],lng0:r[4],type:r[5],note:r[6],approx:!!r[7]})));function coord(s){const c=P.coords[s.id];return c?[c.lat,c.lng]:[s.lat0,s.lng0]}function coordStatus(s){return P.coords[s.id]?.verified?'人工確認座標':P.coords[s.id]?'自訂座標・待確認':s.approx?'概略座標・待確認':'來源座標・未重新實測'}
+const esc=t=>String(t).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));const gm=s=>'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(s.name+' '+s.address);const dir=s=>'https://www.google.com/maps/dir/?api=1&destination='+encodeURIComponent(s.name+' '+s.address);const osm=s=>{const [a,b]=coord(s);return `https://www.openstreetmap.org/?mlat=${a}&mlon=${b}#map=17/${a}/${b}`};
+function save(){try{localStorage.setItem(KEY,JSON.stringify(P))}catch(e){toast('無法儲存偏好')}}function toast(t){$('#toast').textContent=t;$('#toast').style.display='block';clearTimeout(toast.t);toast.t=setTimeout(()=>$('#toast').style.display='none',3500)}function date(d){return (P.batch===0?['10/27','10/28','10/29']:['11/2','11/3','11/4'])[d]}
+const NL=id=>`https://wmts.nlsc.gov.tw/wmts/${id}/default/GoogleMapsCompatible/{z}/{y}/{x}`;const bases={osm:{n:'OpenStreetMap',u:'https://tile.openstreetmap.org/{z}/{x}/{y}.png',a:'© OpenStreetMap contributors',max:19},emap:{n:'Taiwan Map・臺灣通用電子地圖',u:NL('EMAP'),a:'© 內政部國土測繪中心',max:19},photo:{n:'國土圖資・正射影像',u:NL('PHOTO2'),a:'© 內政部國土測繪中心',max:19},terrain:{n:'國土圖資・經建版地形',u:NL('B25000'),a:'© 內政部國土測繪中心',max:16},sat:{n:'Esri 衛星',u:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',a:'Tiles © Esri',max:19}};const engines={leaflet:'Leaflet',ol:'OpenLayers',ml:'MapLibre GL JS',google:'Google Maps',map8:'Map8 台灣圖霸（需金鑰）'};
+let S={page:'overview',day:-1,sel:null,query:'',type:'',routes:true};const views={};const allPages=['overview','cal','mapx','table','guide','settings'];const pageNames=['🏝 巡禮全貌','📅 每日行程','🗺 地圖互動','📋 地點表','🎒 行前／費用','⚙ 設定'];
+function list(kind){return stops.filter(s=>(S.day<0||s.day===S.day)&&(kind!=='mapx'||(!S.type||s.type===S.type)&&(!S.query||(s.name+s.address+s.phone).toLowerCase().includes(S.query))))}
+const cache={};function css(u){if(document.querySelector(`link[href="${u}"]`))return;const l=document.createElement('link');l.rel='stylesheet';l.href=u;document.head.appendChild(l)}function script(u){if(cache[u])return cache[u];return cache[u]=new Promise((res,rej)=>{const e=document.createElement('script');e.src=u;e.onload=res;e.onerror=()=>{delete cache[u];rej(Error('套件載入失敗，請檢查網路後重試'))};document.head.appendChild(e)})}async function lib(k){if(k==='leaflet'){css('https://unpkg.com/leaflet@1.9.4/dist/leaflet.css');await script('https://unpkg.com/leaflet@1.9.4/dist/leaflet.js')}if(k==='ol'){css('https://cdn.jsdelivr.net/npm/ol@10.3.1/ol.css');await script('https://cdn.jsdelivr.net/npm/ol@10.3.1/dist/ol.js')}if(k==='ml'||k==='map8'){css('https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css');await script('https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js')}}
+function markerEl(s){const e=document.createElement('div');e.className='mk';e.style.cssText='width:38px;height:38px';e.tabIndex=0;e.setAttribute('role','button');e.setAttribute('aria-label',`D${s.day+1}-${s.n} ${s.name}`);e.title=s.name;const c=P.color==='type'?TC[s.type]:C[s.day];e.innerHTML=`<div class="pin ${P.marker==='square'?'square':P.marker==='drop'?'drop':''}" style="--c:${c};--d:${C[s.day]}">${P.marker==='icon'?`<em>${IC[s.type]}</em><b>${s.day+1}-${s.n}</b>`:`${s.day+1}-${s.n}`}</div>`;if(P.labels)e.title=s.name;e.onmouseenter=()=>highlight(s.id,true);e.onmouseleave=()=>highlight(s.id,false);e.onkeydown=ev=>{if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();select(s.id,false)}};return e}
+function popup(s){return `<strong>${esc(s.name)}</strong><br>${esc(s.address)}<br>${esc(coordStatus(s))}<br><a target="_blank" rel="noopener" href="${dir(s)}">導航</a> · <a target="_blank" rel="noopener" href="${gm(s)}">Google地圖</a>`}
+class View{constructor(page,host){this.page=page;this.host=$(host);this.token=0;this.signature='';this.busy=false;this.markers={};this.map=null;this.dk=''}visible(){return S.page===this.page&&!document.body.classList.contains('ls-map')}sig(){return [P.engine,P.base,P.gkey,P.mkey].join('|')}
+key(){return [S.day,S.type,S.query,S.routes,P.marker,P.color,P.labels,JSON.stringify(P.coords)].join('|')}
+restoreSel(){const s=stops.find(x=>x.id===S.sel);if(s&&this.markers[s.id])this.select(s,true)}
+async ensure(){if(!this.visible())return;if(this.signature===this.sig()&&this.map){this.resize();if(this.dk!==this.key()){this.draw();this.fit();this.restoreSel()}return}if(this.busy){this.pending=true;return}this.busy=true;this.pending=false;const sig=this.sig();this.signature=sig;this.destroy();const canvas=document.createElement('div');canvas.className='canvas';this.host.replaceChildren(canvas);const loading=document.createElement('div');loading.className='mapMessage';loading.textContent='正在載入地圖…';this.host.appendChild(loading);try{await this.init(canvas);if(sig!==this.sig())return;loading.remove();this.draw();this.fit();this.restoreSel()}catch(e){loading.textContent='⚠ '+e.message;const b=document.createElement('button');b.textContent='改用Leaflet＋OpenStreetMap';b.onclick=()=>{P.engine='leaflet';P.base='osm';save();this.signature='';renderBars();ensureAll()};loading.append(document.createElement('br'),b);this.signature=''}finally{this.busy=false;if(this.pending||sig!==this.sig()){this.signature='';this.ensure()}}}destroy(){try{if(this.kind==='lf')this.map?.remove();else if(this.kind==='ol')this.map?.setTarget(null);else if(this.kind==='ml')this.map?.remove();else if(this.kind==='g')this.gms?.forEach(m=>m.setMap(null))}catch(e){}this.map=null;this.markers={};this.lines=[];this.ovs=[];this.dk='';this.generation=(this.generation||0)+1}
+async init(canvas){const b=bases[P.base]||bases.osm;if(P.engine==='google'&&!P.gkey){this.kind='embed';const f=document.createElement('iframe');f.title='Google簡易內嵌地圖';f.referrerPolicy='no-referrer-when-downgrade';f.allowFullscreen=true;canvas.appendChild(f);this.map=f;return}if(P.engine==='google'){if(!window.google?.maps){window.__yinggeGoogle=()=>{};await script('https://maps.googleapis.com/maps/api/js?key='+encodeURIComponent(P.gkey)+'&loading=async&callback=__yinggeGoogle&language=zh-TW');if(!window.google?.maps)await new Promise((r,j)=>{let n=0;const t=setInterval(()=>{if(window.google?.maps){clearInterval(t);r()}else if(++n>60){clearInterval(t);j(Error('Google Maps載入逾時'))}},100)})}if(google.maps.importLibrary){await google.maps.importLibrary('maps');await google.maps.importLibrary('marker');await google.maps.importLibrary('core')}this.kind='g';this.map=new google.maps.Map(canvas,{center:{lat:23.8,lng:121},zoom:7,mapTypeId:'roadmap',streetViewControl:false});this.iw=new google.maps.InfoWindow();return}await lib(P.engine);if(P.engine==='leaflet'){this.kind='lf';this.map=L.map(canvas,{scrollWheelZoom:false}).setView([23.8,121],7);const lm=this.map,box=lm.getContainer();const wheelOn=()=>{if(!lm.scrollWheelZoom.enabled()){lm.scrollWheelZoom.enable();toast('已啟用滑鼠滾輪縮放；移出地圖即恢復頁面捲動')}};const wheelOff=()=>{if(lm.scrollWheelZoom.enabled())lm.scrollWheelZoom.disable()};lm.on('click focus',wheelOn);lm.on('blur',wheelOff);box.addEventListener('mouseleave',wheelOff);box.addEventListener('touchstart',wheelOff,{passive:true});L.tileLayer(b.u,{maxZoom:19,maxNativeZoom:b.max,attribution:b.a}).addTo(this.map);L.control.scale({imperial:false}).addTo(this.map);this.layer=L.layerGroup().addTo(this.map)}else if(P.engine==='ol'){this.kind='ol';this.map=new ol.Map({target:canvas,layers:[new ol.layer.Tile({source:new ol.source.XYZ({url:b.u,maxZoom:b.max,attributions:b.a})})],view:new ol.View({center:ol.proj.fromLonLat([121,23.8]),zoom:7})});this.vs=new ol.source.Vector();this.map.addLayer(new ol.layer.Vector({source:this.vs,style:f=>[new ol.style.Style({stroke:new ol.style.Stroke({color:'#fff',width:8})}),new ol.style.Style({stroke:new ol.style.Stroke({color:f.get('color'),width:4,lineDash:[8,7]})})]}));this.popEl=document.createElement('div');this.popEl.className='pop';this.pop=new ol.Overlay({element:this.popEl,positioning:'bottom-center',offset:[0,-25],stopEvent:true});this.map.addOverlay(this.pop)}else{if(P.engine==='map8'&&!P.mkey)throw Error('Map8需要API金鑰，請至設定填入；未提供任何共享金鑰');this.kind='ml';const style=P.engine==='map8'?'https://api.map8.zone/styles/go-life-maps-tw-style-std/style.json':{version:8,sources:{base:{type:'raster',tiles:[b.u],tileSize:256,maxzoom:b.max,attribution:b.a}},layers:[{id:'base',type:'raster',source:'base'}]};this.map=new maplibregl.Map({container:canvas,style,center:[121,23.8],zoom:6,transformRequest:url=>({url:P.engine==='map8'&&url.includes('api.map8.zone')&&!url.includes('key=')?url+(url.includes('?')?'&':'?')+'key='+encodeURIComponent(P.mkey):url})});this.map.addControl(new maplibregl.NavigationControl());this.map.addControl(new maplibregl.ScaleControl());this.map.on('load',()=>this.draw());}}
+resize(){if(this.kind==='lf')this.map.invalidateSize();else if(this.kind==='ol')this.map.updateSize();else if(this.kind==='ml')this.map.resize()}
+draw(){if(!this.map)return;this.dk=this.key();const arr=list(this.page);if(this.kind==='embed'){const s=arr.find(s=>s.id===S.sel)||arr[0];this.map.src='https://maps.google.com/maps?output=embed&hl=zh-TW&z='+(S.sel?15:8)+'&q='+encodeURIComponent(s?s.name+' '+s.address:'Taiwan');return}if(this.kind==='lf')this.layer.clearLayers();if(this.kind==='ol'){this.ovs.forEach(o=>this.map.removeOverlay(o));this.ovs=[];this.vs.clear();this.pop.setPosition(undefined)}if(this.kind==='ml'){this.mlmarkers?.forEach(m=>m.remove());this.mlmarkers=[];if(this.map.getLayer('routes'))this.map.removeLayer('routes');if(this.map.getSource('routes'))this.map.removeSource('routes')}if(this.kind==='g'){this.gms?.forEach(m=>m.setMap(null));this.gms=[];this.lines?.forEach(m=>m.setMap(null));this.lines=[]}this.markers={};const routes=[0,1,2].map(d=>({day:d,points:arr.filter(s=>s.day===d).map(coord)})).filter(r=>r.points.length>1);if(S.routes)for(const r of routes){if(this.kind==='lf'){L.polyline(r.points,{color:'#fff',weight:8,interactive:false}).addTo(this.layer);L.polyline(r.points,{color:C[r.day],weight:4,dashArray:'8 7',interactive:false}).addTo(this.layer)}if(this.kind==='ol'){const f=new ol.Feature(new ol.geom.LineString(r.points.map(p=>ol.proj.fromLonLat([p[1],p[0]]))));f.set('color',C[r.day]);this.vs.addFeature(f)}if(this.kind==='g')this.lines.push(new google.maps.Polyline({path:r.points.map(p=>({lat:p[0],lng:p[1]})),strokeColor:C[r.day],strokeWeight:4,map:this.map}))}if(this.kind==='ml'&&this.map.isStyleLoaded()&&S.routes){this.map.addSource('routes',{type:'geojson',data:{type:'FeatureCollection',features:routes.map(r=>({type:'Feature',properties:{color:C[r.day]},geometry:{type:'LineString',coordinates:r.points.map(p=>[p[1],p[0]])}}))}});this.map.addLayer({id:'routes',type:'line',source:'routes',paint:{'line-color':['get','color'],'line-width':4,'line-dasharray':[2,1.5]}})}for(const s of arr){const p=coord(s);if(this.kind==='lf'){const e=markerEl(s);const m=L.marker(p,{title:s.name,icon:L.divIcon({className:'mk',html:e.innerHTML,iconSize:[38,38],iconAnchor:[19,19]})}).addTo(this.layer).bindPopup(popup(s));if(P.labels)m.bindTooltip(esc(s.name));m.on('click',()=>select(s.id,false));const elem=m.getElement();elem?.setAttribute('aria-label',s.name);this.markers[s.id]={m,e:elem}}else if(this.kind==='ol'){const e=markerEl(s);e.onclick=()=>select(s.id,false);const o=new ol.Overlay({element:e,position:ol.proj.fromLonLat([p[1],p[0]]),positioning:'center-center',stopEvent:true});this.map.addOverlay(o);this.ovs.push(o);this.markers[s.id]={e,m:o}}else if(this.kind==='ml'){const e=markerEl(s);e.onclick=ev=>{ev.stopPropagation();select(s.id,false)};const m=new maplibregl.Marker({element:e,anchor:'center'}).setLngLat([p[1],p[0]]).addTo(this.map);this.mlmarkers.push(m);this.markers[s.id]={e,m}}else if(this.kind==='g'){const m=new google.maps.Marker({position:{lat:p[0],lng:p[1]},map:this.map,title:s.name,label:{text:`${s.day+1}-${s.n}`,color:'#fff',fontSize:'11px'},icon:{path:google.maps.SymbolPath.CIRCLE,fillColor:P.color==='type'?TC[s.type]:C[s.day],fillOpacity:1,strokeColor:'#fff',strokeWeight:3,scale:18}});m.addListener('click',()=>select(s.id,false));this.gms.push(m);this.markers[s.id]={m}}}this.mark()}
+mark(){for(const [id,o]of Object.entries(this.markers)){o.e?.classList.toggle('sel',id===S.sel);if(this.kind==='g')o.m.setZIndex(id===S.sel?1000:0)}}select(s,fly){const o=this.markers[s.id],p=coord(s);this.mark();if(this.kind==='embed'){this.draw();return}if(!o)return;if(this.kind==='lf'){if(fly)this.map.setView(p,Math.max(this.map.getZoom(),14),{animate:!P.motion});o.m.openPopup()}if(this.kind==='ol'){if(fly)this.map.getView().animate({center:ol.proj.fromLonLat([p[1],p[0]]),zoom:Math.max(14,this.map.getView().getZoom()),duration:P.motion?0:600});this.popEl.innerHTML='<button aria-label="關閉地點資訊" style="float:right;min-height:28px;padding:0 6px">×</button>'+popup(s);this.popEl.firstChild.onclick=()=>this.pop.setPosition(undefined);this.pop.setPosition(ol.proj.fromLonLat([p[1],p[0]]))}if(this.kind==='ml'){if(fly)this.map.flyTo({center:[p[1],p[0]],zoom:Math.max(14,this.map.getZoom()),duration:P.motion?0:600});this.pp?.remove();this.pp=new maplibregl.Popup({offset:25}).setLngLat([p[1],p[0]]).setHTML(popup(s)).addTo(this.map)}if(this.kind==='g'){if(fly){this.map.panTo({lat:p[0],lng:p[1]});this.map.setZoom(Math.max(14,this.map.getZoom()))}this.iw.setContent(popup(s));this.iw.open(this.map,o.m)}}
+fit(island=false){const arr=list(this.page);if(!this.map||!arr.length)return;const pp=island?[[21.85,119.95],[25.4,122.1]]:arr.map(coord);if(this.kind==='lf')this.map.fitBounds(pp,{padding:[40,40],maxZoom:13,animate:!P.motion});if(this.kind==='ol')this.map.getView().fit(ol.extent.boundingExtent(pp.map(p=>ol.proj.fromLonLat([p[1],p[0]]))),{padding:[45,45,45,45],maxZoom:13,duration:P.motion?0:600});if(this.kind==='ml'){const b=new maplibregl.LngLatBounds();pp.forEach(p=>b.extend([p[1],p[0]]));this.map.fitBounds(b,{padding:45,maxZoom:13,duration:P.motion?0:600})}if(this.kind==='g'){const b=new google.maps.LatLngBounds();pp.forEach(p=>b.extend({lat:p[0],lng:p[1]}));this.map.fitBounds(b,45)}if(this.kind==='embed')this.draw()}}
+views.overview=new View('overview','#ovMap');views.cal=new View('cal','#calMap');views.mapx=new View('mapx','#mxMap');
+function ensureAll(){Object.values(views).forEach(v=>v.ensure())}
+function renderBars(){$$('.mapbar').forEach(b=>{b.innerHTML=`<div class="bar"><label>引擎<select class="engine">${Object.entries(engines).map(([k,n])=>`<option value="${k}">${n}</option>`).join('')}</select></label><label>底圖<select class="base">${Object.entries(bases).map(([k,b])=>`<option value="${k}">${b.n}</option>`).join('')}</select></label><button class="settingsBtn">⚙ 設定</button></div><p class="muted" style="font-size:13px">${P.engine==='google'?(P.gkey?'Google完整地圖；使用Google自身底圖，樣式為原生圓點。':'Google免金鑰簡易內嵌：只顯示單一地點，不能同步多標記。'):P.engine==='map8'?'Map8固定使用其授權向量樣式，需填入金鑰；不套用其他底圖。':P.engine==='leaflet'?'圖資與引擎分開選擇；Leaflet：點一下地圖即可用滾輪縮放，移出地圖恢復頁面捲動。':'圖資與引擎分開選擇；Taiwan Map對應國土測繪中心臺灣通用電子地圖。'}</p>`;b.querySelector('.engine').value=P.engine;const bs=b.querySelector('.base');bs.value=P.base;bs.disabled=P.engine==='google'||P.engine==='map8';b.querySelector('.engine').onchange=e=>{P.engine=e.target.value;save();renderBars();ensureAll()};bs.onchange=e=>{P.base=e.target.value;save();renderBars();ensureAll()};b.querySelector('.settingsBtn').onclick=()=>go('settings')})}
+function go(page,fromPop){if(!allPages.includes(page))page='overview';const changed=S.page!==page;S.page=page;allPages.forEach(p=>$('#'+p).hidden=p!==page);$$('[data-page]').forEach(b=>{b.classList.toggle('active',b.dataset.page===page);if(b.dataset.page===page)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current')});const moreBtn=$('.bottom button:last-child');if(moreBtn)moreBtn.classList.toggle('active',page==='table'||page==='settings');$('#more').hidden=true;try{if(fromPop||!changed)history.replaceState(null,'','#'+page);else history.pushState(null,'','#'+page)}catch(e){}requestAnimationFrame(()=>views[page]?.ensure());if(changed)scrollTo({top:0,behavior:'auto'});window.dispatchEvent(new CustomEvent('yingge:page',{detail:{page}}))}
+allPages.forEach((p,i)=>{const b=document.createElement('button');b.textContent=pageNames[i];b.dataset.page=p;b.onclick=()=>go(p);$('.top').appendChild(b)});['overview','cal','mapx','guide','more'].forEach((p,i)=>{const b=document.createElement('button');b.innerHTML=`<span>${['🏝','📅','🗺','🎒','⋯'][i]}</span>${['全貌','行程','地圖','行前','更多'][i]}`;if(p==='more')b.onclick=()=>{$('#more').hidden=false;$('#more button').focus()};else{b.dataset.page=p;b.onclick=()=>go(p)}$('.bottom').appendChild(b)});$$('#more [data-page]').forEach(b=>b.onclick=()=>go(b.dataset.page));$('#closeMore').onclick=()=>{$('#more').hidden=true;$('.bottom button:last-child').focus()};$('#more').onclick=e=>{if(e.target===$('#more'))$('#closeMore').click()};document.addEventListener('keydown',e=>{if(!$('#more').hidden&&e.key==='Escape')$('#closeMore').click();if(!$('#more').hidden&&e.key==='Tab'){const a=$$('#more button'),first=a[0],last=a.at(-1);if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}}});
+addEventListener('popstate',()=>{const h=location.hash.slice(1);go(allPages.includes(h)?h:'overview',true)});
+function day(d){S.day=d;S.sel=null;render();for(const v of Object.values(views)){if(v.visible()&&v.map){v.draw();v.fit()}}window.dispatchEvent(new CustomEvent('yingge:day',{detail:{day:d}}))}function select(id,fly=true){const s=stops.find(s=>s.id===id);if(!s)return;S.sel=id;renderInfos();renderList();$$('tr[data-stop]').forEach(r=>r.classList.toggle('selected',r.dataset.stop===id));for(const v of Object.values(views))if(v.visible()&&v.map)v.select(s,fly);window.dispatchEvent(new CustomEvent('yingge:select',{detail:{id,fly}}))}function highlight(id,on){Object.values(views).forEach(v=>{const e=v.markers[id]?.e;if(e)e.style.filter=on?'brightness(1.15)':''})}
+function info(s){return `<h3>D${s.day+1}-${s.n} ${esc(s.name)}</h3><p>${esc(s.address)}</p><p>${s.phone?`<a href="tel:${s.phone}">${esc(s.phone)}</a>`:'街區無統一店家電話'}</p><p class="muted">${esc(s.note)}</p><span class="badge">${coordStatus(s)}</span><div class="bar" style="margin-top:10px"><a class="btn" href="${dir(s)}" target="_blank" rel="noopener">🧭 導航</a><button type="button" data-speak="${s.id}" aria-pressed="false">🔊 朗讀</button><a class="btn" href="${gm(s)}" target="_blank" rel="noopener">Google</a><a class="btn" href="${osm(s)}" target="_blank" rel="noopener">OSM</a><button data-copy="${s.id}">複製地址</button></div>`}function renderInfos(){const s=stops.find(s=>s.id===S.sel);for(const id of ['ovInfo','calInfo','mxInfo','lsInfo']){const el=$('#'+id);if(el)el.innerHTML=s?info(s):'選取地點即可查看地址、電話與導航。'}$$('[data-copy]').forEach(b=>b.onclick=async()=>{try{await navigator.clipboard.writeText(stops.find(s=>s.id===b.dataset.copy).address);toast('已複製地址')}catch(e){toast('無法使用剪貼簿，請選取地址複製')}});window.dispatchEvent(new CustomEvent('yingge:render'))}
+function renderList(){const a=list('mapx');for(const [pid,cid] of [['#stopList','#count'],['#lsList','#lsCount']]){const p=$(pid);if(!p)continue;p.innerHTML='';const c=$(cid);if(c)c.textContent=`地點清單・${a.length}站`;if(!a.length)p.textContent='沒有符合條件的地點。';a.forEach(s=>{const b=document.createElement('button');b.className='stop'+(S.sel===s.id?' selected':'');b.dataset.id=s.id;b.setAttribute('aria-pressed',String(S.sel===s.id));b.innerHTML=`<span class="num" style="--c:${C[s.day]}">${s.day+1}-${s.n}</span><span>${esc(s.name)}<small>${s.type}・${esc(s.address)}</small></span>`;b.onclick=()=>select(s.id);p.appendChild(b)})}}
+function summary(d){return `<article style="--c:${C[d]}"><h3>D${d+1}・${date(d)} ${titles[d]}</h3><p class="muted">${area[d]}</p><p>${stops.filter(s=>s.day===d).map(s=>esc(s.name)).join(' → ')}</p><p>午餐餐廳待通知。${d===0?'晚餐住宿：皇品酒店（待確認）':d===1?'晚餐住宿：台糖長榮酒店':'鶯歌晚餐後賦歸'}</p></article>`}
+function render(){$$('.days').forEach(p=>{p.innerHTML='';[-1,0,1,2].forEach(d=>{const b=document.createElement('button');b.textContent=d<0?'三天全貌':`D${d+1} ${date(d)}`;b.classList.toggle('active',S.day===d);b.setAttribute('aria-pressed',String(S.day===d));b.onclick=()=>day(d);p.appendChild(b)});const sp=document.createElement('button');sp.type='button';sp.className='speakBtn';sp.dataset.speak='scope';sp.setAttribute('aria-pressed','false');sp.textContent='🔊 朗讀';p.appendChild(sp)});$('#routeCards').innerHTML=[0,1,2].map(d=>`<div class="daycard" style="--c:${C[d]}"><h3>D${d+1} ${titles[d]}</h3><p class="muted">${area[d]}</p><button data-day="${d}">查看本日路線</button></div>`).join('');$$('[data-day]').forEach(b=>b.onclick=()=>day(+b.dataset.day));$('#allTimeline').innerHTML=[0,1,2].map(d=>`<div class="timeline">${summary(d)}</div>`).join('');$('#dayTimeline').innerHTML=(S.day<0?[0,1,2]:[S.day]).map(d=>summary(d)+stops.filter(s=>s.day===d).map(s=>`<article style="--c:${C[d]}"><span class="badge">${s.type}</span><h3>${s.n}. ${esc(s.name)}</h3><p>${esc(s.address)}</p><button data-calstop="${s.id}">在地圖選取</button></article>`).join('')).join('');$$('[data-calstop]').forEach(b=>b.onclick=()=>select(b.dataset.calstop));$('#rows').innerHTML=list('table').map(s=>`<tr data-stop="${s.id}"><td data-label="日／站">D${s.day+1}-${s.n}</td><td data-label="地點">${esc(s.name)}</td><td data-label="地址">${esc(s.address)}</td><td data-label="電話">${s.phone?`<a href="tel:${s.phone}">${s.phone}</a>`:'無統一電話'}</td><td data-label="狀態">${coordStatus(s)}<br>${esc(s.note)}</td><td data-label="地圖"><a class="btn" target="_blank" rel="noopener" href="${gm(s)}">Google</a><a class="btn" target="_blank" rel="noopener" href="${osm(s)}">OSM</a></td></tr>`).join('');$$('tr[data-stop]').forEach(r=>r.onclick=e=>{if(e.target.closest('a'))return;S.query='';S.type='';$('#search').value='';$('#type').value='';const id=r.dataset.stop;go('mapx');select(id,false);const vs=Object.values(views).filter(v=>v.page==='mapx');Promise.all(vs.map(v=>v.ensure())).then(()=>{if(S.page==='mapx')select(id,true)})});renderInfos();renderList();$$('.legend').forEach(p=>p.innerHTML=C.map((c,i)=>`<span><i style="background:${c}"></i>D${i+1} 第${i+1}天</span>`).join(''))}
+$$('[data-fit]').forEach(b=>b.onclick=()=>views[b.dataset.fit].fit());$('#island').onclick=()=>views.overview.fit(true);$$('[data-step]').forEach(b=>b.onclick=()=>{const a=list('cal');let i=a.findIndex(s=>s.id===S.sel);i=i<0?(+b.dataset.step>0?0:a.length-1):(i+(+b.dataset.step)+a.length)%a.length;if(a[i])select(a[i].id)});$$('.routeToggle').forEach(c=>c.onchange=()=>{S.routes=c.checked;Object.values(views).forEach(v=>v.visible()&&v.map&&v.draw())});$('#fold').onclick=()=>{const c=$('#listPanel').classList.toggle('collapsed');$('#fold').textContent=c?'展開清單':'收合清單';$('#fold').setAttribute('aria-expanded',String(!c))};Object.keys(TC).forEach(t=>{const o=document.createElement('option');o.value=o.textContent=t;$('#type').appendChild(o)});function filter(){S.query=$('#search').value.trim().toLowerCase();S.type=$('#type').value;renderList();Object.values(views).forEach(v=>v.page==='mapx'&&v.map&&v.visible()&&v.draw())}$('#search').oninput=filter;$('#type').onchange=filter;$('#batch').value=P.batch;$('#batch').onchange=e=>{P.batch=+e.target.value;save();render()};$('#locate').onclick=()=>{if(!navigator.geolocation)return toast('瀏覽器不支援定位');toast('正在定位…');navigator.geolocation.getCurrentPosition(p=>{const v=views.mapx;if(!v.map)return;const fake={id:'me',name:'你的位置',address:'',phone:'',day:0,n:0,type:'集合',lat0:p.coords.latitude,lng0:p.coords.longitude};if(v.kind==='lf'){v.me&&v.map.removeLayer(v.me);v.me=L.circleMarker([fake.lat0,fake.lng0],{color:'#176ac0',radius:8}).addTo(v.map);v.map.setView([fake.lat0,fake.lng0],14)}else if(v.kind==='ol')v.map.getView().setCenter(ol.proj.fromLonLat([fake.lng0,fake.lat0]));else if(v.kind==='ml')v.map.flyTo({center:[fake.lng0,fake.lat0],zoom:14});else if(v.kind==='g')v.map.setCenter({lat:fake.lat0,lng:fake.lng0});else toast('簡易Google模式請使用其定位功能');toast('定位僅於本次使用，不儲存位置')},()=>toast('定位失敗，請確認HTTPS與定位權限'),{timeout:12000})};
+function download(text,name,type){const u=URL.createObjectURL(new Blob([text],{type})),a=document.createElement('a');a.href=u;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(u),2500)}$('#csv').onclick=()=>{const a=[['天數','站序','地點','地址','電話','緯度','經度','資料狀態','備註'],...stops.map(s=>[s.day+1,s.n,s.name,s.address,s.phone,...coord(s),coordStatus(s),s.note])];download('\uFEFF'+a.map(r=>r.map(x=>'"'+String(x).replace(/"/g,'""')+'"').join(',')).join('\r\n'),'tour-v7.csv','text/csv;charset=utf-8')};const icesc=t=>String(t).replace(/\\/g,'\\\\').replace(/\n/g,'\\n').replace(/;/g,'\\;').replace(/,/g,'\\,');
+const icsFold=l=>{const enc=new TextEncoder(),out=[];let cur='';for(const ch of l){if(enc.encode(cur+ch).length>73){out.push(cur);cur=' '+ch}else cur+=ch}out.push(cur);return out.join('\r\n')};
+$('#ics').onclick=()=>{const days=P.batch===0?['20261027','20261028','20261029','20261030']:['20261102','20261103','20261104','20261105'];let a=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Yingge Tour//V7//ZH','CALSCALE:GREGORIAN'];for(let d=0;d<3;d++){a.push('BEGIN:VEVENT',`UID:yingge-v7-b${P.batch}-d${d}@local-tour`,`DTSTAMP:${new Date().toISOString().replace(/[-:]/g,'').replace(/\.\d{3}/,'')}`,`DTSTART;VALUE=DATE:${days[d]}`,`DTEND;VALUE=DATE:${days[d+1]}`,`SUMMARY:${icesc('鶯歌農會 D'+(d+1)+' '+titles[d])}`,`DESCRIPTION:${icesc(stops.filter(s=>s.day===d).map(s=>s.name+'｜'+s.address).join('\n')+'\n午餐待通知；各站時間未指定。')}`,`LOCATION:${icesc(area[d])}`,'END:VEVENT')}a.push('END:VCALENDAR');download(a.map(icsFold).join('\r\n')+'\r\n','tour-v7.ics','text/calendar;charset=utf-8')};
+function refreshMaps(){Object.values(views).forEach(v=>{if(v.visible()&&v.map)v.draw()})}for(const k of ['font','marker','color']){$('#'+k).value=P[k];$('#'+k).onchange=e=>{P[k]=k==='font'?+e.target.value:e.target.value;save();document.body.style.fontSize=P.font+'px';refreshMaps()}}document.body.style.fontSize=P.font+'px';for(const k of ['motion','labels']){$('#'+k).checked=P[k];$('#'+k).onchange=e=>{P[k]=e.target.checked;save();refreshMaps()}}$('#gkey').value=P.gkey;$('#mkey').value=P.mkey;$('#saveKeys').onclick=()=>{P.gkey=$('#gkey').value.trim();P.mkey=$('#mkey').value.trim();save();location.reload()};$('#clearKeys').onclick=()=>{P.gkey=P.mkey='';save();location.reload()};
+stops.forEach(s=>{const o=document.createElement('option');o.value=s.id;o.textContent=`D${s.day+1}-${s.n} ${s.name}`;$('#editStop').appendChild(o)});function edit(){const s=stops.find(s=>s.id===$('#editStop').value),p=coord(s);$('#lat').value=p[0];$('#lng').value=p[1];$('#verified').checked=!!P.coords[s.id]?.verified}$('#editStop').onchange=edit;edit();$('#saveCoord').onclick=()=>{const a=+$('#lat').value,b=+$('#lng').value;if(!Number.isFinite(a)||!Number.isFinite(b)||a<20||a>27||b<118||b>124)return toast('請輸入台灣範圍內有效座標');P.coords[$('#editStop').value]={lat:a,lng:b,verified:$('#verified').checked};save();render();refreshMaps();toast('已儲存此站座標')};$('#resetCoord').onclick=()=>{delete P.coords[$('#editStop').value];save();edit();render();refreshMaps()};$('#backup').onclick=()=>{const o=structuredClone(P);if(!$('#includeKeys').checked){delete o.gkey;delete o.mkey}download(JSON.stringify({app:'yingge-v7',version:APP_VERSION,preferences:o},null,2),'tour-settings-v7.json','application/json')};$('#import').onclick=()=>$('#file').click();$('#file').onchange=async e=>{try{const o=JSON.parse(await e.target.files[0].text());if(o.app!=='yingge-v7'||!o.preferences)throw Error('不是本版設定檔');const q=o.preferences;if(!(q.engine in engines)||!(q.base in bases)||![16,18,20].includes(q.font)||!['drop','dot','icon','square'].includes(q.marker)||!['day','type'].includes(q.color)||![0,1].includes(q.batch))throw Error('設定選項不合法');for(const key of ['gkey','mkey','updateURL'])if(q[key]!==undefined&&typeof q[key]!=='string')throw Error('欄位格式錯誤');if(q.coords&&typeof q.coords!=='object')throw Error('座標格式錯誤');for(const [id,c]of Object.entries(q.coords||{}))if(!stops.some(s=>s.id===id)||!Number.isFinite(c.lat)||!Number.isFinite(c.lng)||c.lat<20||c.lat>27||c.lng<118||c.lng>124)throw Error('匯入座標無效');if(!confirm('將覆蓋本版偏好與座標；確定匯入？'))return;const allowed=Object.keys(defaults);for(const k of allowed)if(q[k]!==undefined)P[k]=q[k];save();location.reload()}catch(err){toast('匯入失敗：'+err.message)}};$('#reset').onclick=()=>{if(confirm('清除本版偏好、金鑰、座標及行前清單？')){localStorage.removeItem(KEY);location.reload()}};
+$('#updateURL').value=P.updateURL;$('#checkUpdate').onclick=async()=>{const msg=$('#updateResult');try{const url=new URL($('#updateURL').value.trim()||location.href);if(url.protocol!=='https:')throw Error('需使用HTTPS更新來源');P.updateURL=url.href;save();msg.textContent='檢查中…';const ctl=new AbortController(),tm=setTimeout(()=>ctl.abort(),12000);let r;try{r=await fetch(url.href,{cache:'no-store',signal:ctl.signal})}finally{clearTimeout(tm)}if(!r.ok)throw Error('HTTP '+r.status);const text=await r.text(),v=text.match(/const APP_VERSION='([0-9.]+)'/);if(!v)throw Error('找不到版本資訊');const compare=(a,b)=>{const x=a.split('.').map(Number),y=b.split('.').map(Number);for(let i=0;i<3;i++){if((x[i]||0)!==(y[i]||0))return (x[i]||0)-(y[i]||0)}return 0};msg.textContent=compare(v[1],APP_VERSION)>0?'發現新版 '+v[1]+'，確認來源可信後再開啟。':'目前版本 '+APP_VERSION+'；來源版本 '+v[1];if(compare(v[1],APP_VERSION)>0){const a=document.createElement('a');a.href=url.href;a.target='_blank';a.rel='noopener';a.className='btn';a.textContent='開啟新版';msg.appendChild(a)}}catch(e){msg.textContent='無法檢查：'+e.message+'（可能是網路、CORS或本機檔案限制）'}};
+['身分證','健保卡','隨身藥品','牙刷牙膏','水壺','換洗衣物','雨具','行動電源'].forEach((t,i)=>{const l=document.createElement('label');l.style.cssText='display:block;padding:12px;min-height:46px';const c=document.createElement('input');c.type='checkbox';c.checked=!!P.checks[i];c.onchange=()=>{P.checks[i]=c.checked;save()};l.append(c,document.createTextNode(' '+t));$('#checks').appendChild(l)});function cost(){const n=Math.max(0,Math.floor(+$('#nm').value||0)),f=Math.max(0,Math.floor(+$('#nf').value||0));$('#total').textContent='合計 NT$ '+(n*3000+f*7000).toLocaleString('zh-TW')}$('#nm').oninput=$('#nf').oninput=cost;cost();$('#costChart').innerHTML='<text x="0" y="32">會員</text><rect x="80" y="8" width="180" height="35" rx="6" fill="#1565c0"><title>會員每人3,000元</title></rect><text x="275" y="32">3,000元</text><text x="0" y="102">家屬</text><rect x="80" y="78" width="420" height="35" rx="6" fill="#ad4500"><title>配偶或家屬每人7,000元</title></rect><text x="510" y="102">7,000元</text>';
+/* V7.5: 地圖容器尺寸由 ResizeObserver 補丁管理；語音與橫向版面由 V7.5 模組管理 */renderBars();render();(()=>{const h=location.hash.slice(1);go(allPages.includes(h)?h:'overview',true)})();
+</script>
+<!-- YINGGE_V71_START -->
+<script>
+(()=>{
+'use strict';
+if(window.__yinggeResponsive71)return;window.__yinggeResponsive71=true;
+const style=document.createElement('style');style.id='yingge-responsive-71';style.textContent=`
+:root{--v71-left:62%;--v71-vh:100vh;--v71-bottom:0px;--v71-safe-bottom:env(safe-area-inset-bottom,0px)}
+@supports(height:100dvh){:root{--v71-vh:100dvh}}
+html{scroll-padding-bottom:100px}
+.grid{grid-template-columns:minmax(0,var(--v71-left)) minmax(0,1fr)}
+.grid>*{min-width:0}
+.mapHost{min-width:0;height:clamp(300px,65vh,740px)}
+@supports(height:100dvh){.mapHost{height:clamp(300px,65dvh,740px)}}
+.mapbar select{min-width:0;max-width:100%}
+.mapbar .bar{align-items:center}
+.v71-layout{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0 12px;padding:8px 10px;border:1px solid var(--line,#dbe4e7);border-radius:12px;background:#f4f8f7}
+.v71-layout label{display:flex;gap:8px;align-items:center}
+.v71-layout input[type=range]{width:150px;min-height:44px;padding:0}
+.v71-layout output{min-width:75px;font-size:13px}
+.v71-layout button{min-height:44px}
+.v71-compact{display:none}
+body.v71-keyboard .bottom{display:none!important}
+body.v71-keyboard{padding-bottom:16px!important}
+body.v71-keyboard input:focus,body.v71-keyboard select:focus,body.v71-keyboard textarea:focus{scroll-margin-block:20px}
+body.v71-keyboard #more>div{max-height:calc(var(--v71-vh) - 16px);padding-bottom:20px}
+body.v71-keyboard .toast{bottom:16px}
+input,select,textarea{font-size:max(16px,1em)}
+@media(min-width:701px){.grid{display:grid;grid-template-columns:minmax(0,var(--v71-left)) minmax(250px,1fr)}}
+@media(max-width:700px){.grid{display:flex;flex-direction:column}.mapHost{height:48vh;min-height:260px}.v71-layout{display:none}.bottom{padding-bottom:calc(6px + var(--v71-safe-bottom))}.mapHost .leaflet-control-attribution{max-width:100%;white-space:normal}.mapHost .maplibregl-ctrl-attrib{max-width:100%}}
+@media(max-width:1100px) and (max-height:540px) and (orientation:landscape){
+ body{padding-bottom:0!important}header{padding:5px 12px!important}header h1{font-size:17px!important;line-height:1.4}header small{display:none}
+ nav.top{display:none!important}.bottom{display:none!important}main{padding:6px 8px!important}
+ .v71-compact{display:flex;position:sticky;top:0;z-index:1300;align-items:center;gap:6px;padding:5px 8px;background:#fff;border-bottom:1px solid var(--line);min-height:48px}
+ .v71-compact select{min-height:36px;padding:4px 6px;min-width:0;max-width:145px;font-size:14px}.v71-compact button{min-height:36px;padding:4px 9px;font-size:14px}
+ .v71-compact .v71-more-label{display:none}
+ section> .card{padding:8px;margin-bottom:8px}section> .card>h2{font-size:17px;margin:0 0 5px}
+ #overview>.card:first-child{display:none}
+ .grid{display:grid!important;grid-template-columns:minmax(0,var(--v71-left)) minmax(210px,1fr);gap:8px}
+ .mapHost{height:max(160px,calc(var(--v71-vh) - 205px))!important;min-height:0!important;max-height:calc(var(--v71-vh) - 70px)}
+ .grid aside{max-height:max(160px,calc(var(--v71-vh) - 205px));overflow:auto;overscroll-behavior:contain;padding:0 3px 5px}
+ .list{max-height:25vh}.grid aside .list{max-height:32vh}
+ .bar{gap:5px;margin-bottom:6px}.bar button,.bar select{min-height:36px;padding:4px 8px;font-size:13px}
+ .days{flex-wrap:nowrap;overflow-x:auto}.days button{white-space:nowrap;flex:0 0 auto}
+ .mapbar{display:none}.v71-layout{display:none}.mapbar.v71-expanded{display:block}
+ .mapbar.v71-expanded .bar{flex-wrap:nowrap;overflow:auto}.mapbar p{display:none}
+ #overview .legend{font-size:11px;margin:3px 0}.note{font-size:12px;padding:6px;margin:5px 0}
+ .grid .note{max-height:44px;overflow:auto}.daycard{padding:7px;margin:5px 0}.daycard h3{font-size:14px}.daycard p{font-size:12px;margin:2px 0}.daycard button{min-height:34px;font-size:12px;padding:3px 6px}
+ .info{padding-top:6px;margin-top:6px}.info h3{font-size:15px}.info p{font-size:13px;margin:3px 0}.info .btn,.info button{min-height:36px;font-size:12px;padding:4px 8px}
+ .stop{padding:6px;min-height:42px}.stop small{font-size:11px}
+ footer{padding:8px;font-size:11px}
+ #more>div{padding:12px;max-height:calc(var(--v71-vh) - 12px)}#more button{min-height:36px;margin:3px 0}
+ body.v71-keyboard .grid{display:flex!important;flex-direction:column}
+ body.v71-keyboard #mxMap{height:100px!important;min-height:100px!important}
+ body.v71-keyboard .grid aside{max-height:none;overflow:visible}
+ body.v71-keyboard .v71-compact{position:static}
+}
+@media(max-width:700px){body.v71-keyboard .mapHost{height:110px!important;min-height:110px!important}body.v71-keyboard #stopList{max-height:none}body.v71-keyboard .mapbar{display:none}}
+@media(prefers-reduced-motion:reduce){.mapHost,.grid{transition:none!important}}
+`;document.head.appendChild(style);
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const stateKey='yingge-v71-layout';let ratio=62;try{const n=Number(localStorage.getItem(stateKey));if(n>=45&&n<=75)ratio=n}catch(e){}
+function setRatio(n,store=true){ratio=Math.max(45,Math.min(75,Number(n)||62));document.documentElement.style.setProperty('--v71-left',ratio+'%');$$('.v71-layout input').forEach(e=>e.value=ratio);$$('.v71-layout output').forEach(e=>e.textContent=`${ratio} / ${100-ratio}`);if(store)try{localStorage.setItem(stateKey,String(ratio))}catch(e){}scheduleResize()}
+$$('main .grid').forEach((grid,i)=>{if(grid.previousElementSibling?.classList.contains('v71-layout'))return;const bar=document.createElement('div');bar.className='v71-layout';bar.dataset.nospeak='';bar.setAttribute('aria-label','地圖與清單寬度');const lab=document.createElement('label');lab.textContent='地圖 / 清單';const range=document.createElement('input');range.type='range';range.min=45;range.max=75;range.step=1;range.value=ratio;range.setAttribute('aria-label','地圖寬度百分比');range.oninput=()=>setRatio(range.value,false);range.onchange=()=>setRatio(range.value);const out=document.createElement('output');lab.append(range,out);bar.append(lab);[[75,'地圖優先'],[62,'均衡'],[45,'清單優先']].forEach(([v,t])=>{const b=document.createElement('button');b.type='button';b.textContent=t;b.onclick=()=>setRatio(v);bar.appendChild(b)});grid.before(bar)});
+function currentPage(){return typeof S!=='undefined'?S.page:document.querySelector('main>section:not([hidden])')?.id}
+function switchPage(id){if(typeof go==='function')go(id);syncCompact();scheduleResize()}
+const compact=document.createElement('nav');compact.className='v71-compact';compact.setAttribute('aria-label','橫式精簡導航');compact.innerHTML='<label class="sr" for="v71-page">頁面</label><select id="v71-page"><option value="overview">🏝 巡禮全貌</option><option value="cal">📅 每日行程</option><option value="mapx">🗺 地圖互動</option><option value="table">📋 地點表</option><option value="guide">🎒 行前／費用</option><option value="settings">⚙ 設定</option></select><label class="sr" for="v71-day">日期</label><select id="v71-day"><option value="-1">三天全貌</option><option value="0">D1</option><option value="1">D2</option><option value="2">D3</option></select><button type="button" data-a="fit" aria-label="顯示完整路線">⌖ 全程</button><button type="button" data-a="tools" aria-expanded="false">⚙ <span class="v71-more-label">工具</span></button>';
+const header=$('header');if(header)header.after(compact);else document.body.prepend(compact);
+$('#v71-page').onchange=e=>switchPage(e.target.value);$('#v71-day').onchange=e=>{if(typeof day==='function')day(Number(e.target.value));scheduleResize()};compact.querySelector('[data-a=fit]').onclick=()=>{if(typeof views!=='undefined'){const v=views[currentPage()];v?.fit?.()}};compact.querySelector('[data-a=tools]').onclick=e=>{const p=document.getElementById(currentPage()),bar=p?.querySelector('.mapbar');if(!bar)return switchPage('settings');const open=bar.classList.toggle('v71-expanded');e.currentTarget.setAttribute('aria-expanded',String(open));scheduleResize()};
+function syncCompact(){const p=currentPage();if(p)$('#v71-page').value=p;if(typeof S!=='undefined')$('#v71-day').value=String(S.day);const ismap=['overview','cal','mapx','table'].includes(p);$('#v71-day').hidden=!ismap;compact.querySelector('[data-a=fit]').disabled=!['overview','cal','mapx'].includes(p)}
+let resizeRAF=0;const lastSizes=new WeakMap();
+function scheduleResize(){if(resizeRAF)return;resizeRAF=requestAnimationFrame(()=>{resizeRAF=0;if(typeof views==='undefined')return;for(const v of Object.values(views)){if(!v?.map||!v.host||v.host.offsetParent===null)continue;const r=v.host.getBoundingClientRect();if(r.width<1||r.height<1)continue;const old=lastSizes.get(v.host);if(old&&Math.abs(old[0]-r.width)<.5&&Math.abs(old[1]-r.height)<.5)continue;lastSizes.set(v.host,[r.width,r.height]);try{if(v.kind==='lf')v.map.invalidateSize({pan:false,animate:false});else if(v.kind==='ol')v.map.updateSize();else if(v.kind==='ml')v.map.resize();else if(v.kind==='g'&&window.google?.maps){const center=v.map.getCenter();google.maps.event.trigger(v.map,'resize');if(center)v.map.setCenter(center)}else v.resize?.()}catch(err){console.warn('Responsive map resize',err)}}})}
+window.__yinggeScheduleResize=scheduleResize;
+let observer;if('ResizeObserver' in window){observer=new ResizeObserver(()=>scheduleResize());$$('.mapHost,#lsMap').forEach(e=>observer.observe(e));}else addEventListener('resize',scheduleResize,{passive:true});
+let baseline=innerHeight,focusTimer;const vv=window.visualViewport;
+function editable(){const e=document.activeElement;return e&&(e.tagName==='TEXTAREA'||e.isContentEditable||(e.tagName==='INPUT'&&!['checkbox','radio','button','range','submit','file','color','hidden'].includes(e.type)))}
+function updateViewport(){const height=vv?vv.height:innerHeight;const scaled=!!vv&&Math.abs(vv.scale-1)>.06;document.documentElement.style.setProperty('--v71-vh',height+'px');document.documentElement.style.setProperty('--v71-bottom',Math.max(0,innerHeight-height-(vv?.offsetTop||0))+'px');if(!editable()&&!scaled)baseline=Math.max(innerHeight,height);const loss=Math.max(innerHeight,baseline)-height;const keyboard=!!editable()&&!scaled&&loss>Math.max(110,Math.max(innerHeight,baseline)*.22);const previous=document.body.classList.contains('v71-keyboard');document.body.classList.toggle('v71-keyboard',keyboard);if(keyboard&&!previous){clearTimeout(focusTimer);focusTimer=setTimeout(()=>{const e=document.activeElement;if(e&&editable()){const r=e.getBoundingClientRect(),top=vv?.offsetTop||0;if(r.top<top+8||r.bottom>top+height-12)e.scrollIntoView({block:'nearest',behavior:'auto'})}},100)}scheduleResize()}
+vv?.addEventListener('resize',updateViewport,{passive:true});vv?.addEventListener('scroll',updateViewport,{passive:true});document.addEventListener('focusin',()=>{updateViewport();setTimeout(updateViewport,300)});document.addEventListener('focusout',()=>setTimeout(updateViewport,100));addEventListener('resize',updateViewport,{passive:true});addEventListener('orientationchange',()=>{baseline=innerHeight;setTimeout(()=>{baseline=innerHeight;updateViewport()},350)},{passive:true});
+const main=$('main');if(main){new MutationObserver(()=>{syncCompact();scheduleResize()}).observe(main,{subtree:true,attributes:true,attributeFilter:['hidden']})}
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)scheduleResize()});
+setRatio(ratio,false);syncCompact();updateViewport();setTimeout(scheduleResize,500);
+})();
+</script>
+<!-- YINGGE_V71_END -->
+<!-- YINGGE_V75_START -->
+<script>
+(()=>{
+'use strict';
+if(window.__yinggeV75)return;window.__yinggeV75=true;
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const KEY73='yingge-v73';
+const nameOf=s=>String(s.name).replace(/[（(].*?[）)]/g,'');
+const cleanAddr=a=>String(a).replace(/[（(].*?[）)]/g,'');
+const stripEmoji=t=>String(t).replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE0F}]/gu,'');
+const clamp=(n,a,b,d)=>Number.isFinite(+n)?Math.min(b,Math.max(a,+n)):d;
+function chunks(t,max=110){t=String(t).replace(/\s+/g,' ').trim();if(!t)return[];const parts=t.match(/[^。！？；;!?\n]+[。！？；;!?\n]?/g)||[t];const out=[];for(let p of parts){p=p.trim();while(p.length>max){let cut=p.lastIndexOf('，',max);if(cut<Math.min(30,Math.floor(max/3)))cut=max-1;out.push(p.slice(0,cut+1));p=p.slice(cut+1).trim()}if(p)out.push(p)}return out}
+function phoneSpeak(p){if(!p)return'';return String(p).split('/')[0].replace(/#/g,'-分機-').split('-').map(g=>g.trim()).filter(Boolean).map(g=>/^\d+$/.test(g)?g.split('').join(' '):g).join('，')}
+function langKind(v){const l=String(v.lang||'').replace('_','-'),n=String(v.name||'');if(/^(nan|zh-min-nan)/i.test(l)||/台語|臺語|閩南|taiwanese|hokkien|min ?nan/i.test(n))return'nan';if(/^hak/i.test(l)||/客語|客家|hakka/i.test(n))return'hak';if(/^(zh|cmn|yue)/i.test(l)||/chinese|中文|國語|普通話/i.test(n))return'zh';return'other'}
+function genderOf(v){const n=String(v.name||'');if(/female|女/i.test(n)||/hanhan|yating|hsiao|xiaoxiao|xiaoyi|xiaohan|tingting|ting-ting|mei-?jia|sin-?ji|yaoyao|huihui/i.test(n))return'f';if(/\bmale\b|男/i.test(n)||/zhiwei|yunjhe|yunjian|yunxi|yunyang|yunhao|kangkang|danny/i.test(n))return'm';return''}
+function fill(tpl,text,ctx,json){const map={text:json?JSON.stringify(String(text)).slice(1,-1):encodeURIComponent(text),lang:ctx.lang,dialect:ctx.dialect,gender:ctx.gender==='m'?'male':(ctx.gender==='f'?'female':''),speed:String(ctx.speed),pitch:String(ctx.pitch)};return String(tpl).replace(/\{(text|lang|dialect|gender|speed|pitch)\}/g,(m,k)=>map[k])}
+function normalizeNumbers(t){let s=String(t);s=s.replace(/(\d{4})\/(\d{1,2})\/(\d{1,2})\s*[–\-～~]\s*(\d{1,2})\/(\d{1,2})/g,(m,y,m1,d1,m2,d2)=>`${y}年${+m1}月${+d1}日到${+m2}月${+d2}日`);s=s.replace(/(\d{1,2}):(\d{2})\s*[–\-～~]\s*(\d{1,2}):(\d{2})/g,(m,h1,n1,h2,n2)=>`${+h1}點${n1==='00'?'':+n1+'分'}到${+h2}點${n2==='00'?'':+n2+'分'}`);s=s.replace(/(\d{1,2}):(\d{2})/g,(m,h,n)=>`${+h}點${n==='00'?'':+n+'分'}`);s=s.replace(/(\d{1,2})\/(\d{1,2})/g,(m,a,b)=>`${+a}月${+b}日`);s=s.replace(/NT\$\s*([\d,]+)/g,(m,n)=>'新台幣'+n.replace(/,/g,'')+'元');s=s.replace(/(\d),(\d{3})/g,'$1$2');s=s.replace(/\b(0\d{1,2})-(\d{6,8})\b/g,(m,a,b)=>phoneSpeak(a+'-'+b));return s}
+const ensurePunct=t=>{t=String(t).trim();return/[。！？；：，、.!?;:]$/.test(t)?t:t+'。'};
+function segmentsToText(raw){return String(raw).split('\u0001').map(x=>x.replace(/\s+/g,' ').trim()).filter(Boolean).map(ensurePunct).join(' ')}
+const EXT0=()=>({url:'',method:'GET',body:'',auth:''});
+const D75={voices:{zh:'',nan:'',hak:''},rate:1,pitch:1,volume:1,auto:false,follow:true,notes:true,ls:'auto',lang:'zh',hakka:'sixian',gender:'auto',fallback:'zh',nanApi:true,nanRest:'zh',keep:true,wake:false,hl:true,scroll:true,ext:{nan:EXT0(),hak:EXT0()},scripts:{}};
+function sanitize(o){o=o&&typeof o==='object'?o:{};const b=(v,d)=>typeof v==='boolean'?v:d;
+ o.rate=clamp(o.rate,.5,2,1);o.pitch=clamp(o.pitch,.1,2,1);o.volume=clamp(o.volume,0,1,1);
+ if(!['zh','nan','hak'].includes(o.lang))o.lang='zh';
+ if(!['sixian','hailu','dapu','raoping','zhaoan'].includes(o.hakka))o.hakka='sixian';
+ if(!['auto','f','m'].includes(o.gender))o.gender='auto';
+ if(!['zh','none'].includes(o.fallback))o.fallback='zh';
+ if(!['zh','han'].includes(o.nanRest))o.nanRest='zh';
+ if(!['auto','on','off'].includes(o.ls))o.ls='auto';
+ ['auto','follow','notes','nanApi','keep','wake','hl','scroll'].forEach(k=>o[k]=b(o[k],D75[k]));
+ const v=o.voices&&typeof o.voices==='object'?o.voices:{};o.voices={zh:String(v.zh||''),nan:String(v.nan||''),hak:String(v.hak||'')};
+ const ex=o.ext&&typeof o.ext==='object'?o.ext:{};o.ext={};['nan','hak'].forEach(k=>{const e=ex[k]&&typeof ex[k]==='object'?ex[k]:{};o.ext[k]={url:String(e.url||'').slice(0,2000),method:e.method==='POST'?'POST':'GET',body:String(e.body||'').slice(0,4000),auth:String(e.auth||'').slice(0,2000)}});
+ const sc={};if(o.scripts&&typeof o.scripts==='object')for(const [id,x] of Object.entries(o.scripts)){if(!/^d[1-3]s[1-9]$/.test(id)||!x||typeof x!=='object')continue;const n=String(x.nan||'').slice(0,2000),h=String(x.hak||'').slice(0,2000);if(n||h)sc[id]={nan:n,hak:h}}o.scripts=sc;delete o.voice;return o}
+/* ---- 臺羅：數字調 → 調符 ---- */
+const TLMARK={2:'\u0301',3:'\u0300',5:'\u0302',7:'\u0304',8:'\u030D',9:'\u030B'};
+function tlSyl(w){const m=/^([A-Za-z]+)([1-9])?$/.exec(w);if(!m)return w;let s=m[1];const t=m[2],cap=/^[A-Z]/.test(s);s=s.toLowerCase();const mk=t&&TLMARK[t];const up=x=>cap?x.charAt(0).toUpperCase()+x.slice(1):x;if(!mk)return up(s);
+ let pos=-1;const v=s.search(/[aeiou]/);
+ if(v>=0){let e=v;while(e<s.length&&/[aeiou]/.test(s[e]))e++;const run=s.slice(v,e);
+  if(run.includes('a'))pos=v+run.indexOf('a');else if(run.includes('oo'))pos=v+run.indexOf('oo');else if(run.includes('o'))pos=v+run.indexOf('o');else if(run.includes('e'))pos=v+run.indexOf('e');else if(run.includes('iu'))pos=v+run.indexOf('iu')+1;else if(run.includes('ui'))pos=v+run.indexOf('ui')+1;else pos=v+run.length-1}
+ else{pos=s.search(/(ng|m)$/)}
+ if(pos<0)return up(s);return up((s.slice(0,pos+1)+mk+s.slice(pos+1)).normalize('NFC'))}
+const tlDia=str=>String(str).replace(/[A-Za-z]+[1-9]?/g,tlSyl);
+const NUMTL=['','it4','ji7','sann1','si3','goo7','lak8'];
+const TLNAME={d1s1:'Ing1-ko1 khu1 long5-hue7',d1s2:'Oo5-khau2 ho2-kheh4 bun5-tshong3 uan5-khu1',d1s3:'Thai3-an1 hok8-bu7-khu1',d1s4:'Tiong1-poo1 hiong1 long5-hue7',d1s5:'Phin2-hong5 ka1-pi1 kuan1-kong1 kang1-tshiunn2',d1s6:'Ka1-gi7 Hong5-phin2 kok4-tse3 tsiu2-tiam3',d2s1:'Tai5-kang1 kok4-ka1 kong1-hng5 iu5-khik4 tiong1-sim1',d2s2:'Su3-tsho2 liok8-sik4 sui7-to7',d2s3:'Tshit4-koo2 khu1 long5-hue7',d2s4:'An1-ping5 lau7-ke1',d2s5:'Tai5-thng5 tiong5-ing5 tsiu2-tiam3',d3s1:'Kok4-lip8 Tai5-uan5 lik8-su2 phok4-but8-kuan2',d3s2:'Pak4-kang2 Tiau5-thian1-kiong1',d3s3:'Tshi7-bin5 long5-uan5 hiu1-han5 tshan1-thiann1'};
+function headTL(s){const nm=TLNAME[s.id];if(!nm||!NUMTL[s.n])return'';return tlDia('te7-'+NUMTL[s.n]+' tsam7 '+nm)}
+function tlWait(times,now,limit=3,win=60000){const t=times.filter(x=>now-x<win);return t.length<limit?0:t[0]+win-now+300}
+function silentWav(sec){const rate=8000,n=rate*sec,buf=new ArrayBuffer(44+n),v=new DataView(buf),w=(o,s)=>{for(let i=0;i<s.length;i++)v.setUint8(o+i,s.charCodeAt(i))};w(0,'RIFF');v.setUint32(4,36+n,true);w(8,'WAVE');w(12,'fmt ');v.setUint32(16,16,true);v.setUint16(20,1,true);v.setUint16(22,1,true);v.setUint32(24,rate,true);v.setUint32(28,rate,true);v.setUint16(32,1,true);v.setUint16(34,8,true);w(36,'data');v.setUint32(40,n,true);for(let i=0;i<n;i++)v.setUint8(44+i,128);return new Blob([buf],{type:'audio/wav'})}
+
+const LNAME={zh:'華語',nan:'台語',hak:'客語'};
+let storageOK=true;
+function loadPrefs(){try{const sv=JSON.parse(localStorage.getItem(KEY73)||'{}');const o={...JSON.parse(JSON.stringify(D75)),...sv};if(sv.voice&&!(sv.voices&&sv.voices.zh))o.voices={...D75.voices,...(sv.voices||{}),zh:sv.voice};return sanitize(o)}catch(e){return sanitize(JSON.parse(JSON.stringify(D75)))}}
+let O=loadPrefs();
+function markSaved(t){const e=$('#ttsSaved');if(e)e.textContent=t}
+function store(){try{localStorage.setItem(KEY73,JSON.stringify(O));storageOK=true;markSaved('語言、速度、音調、聲音性別與語音已自動儲存在這台裝置（'+new Date().toLocaleTimeString('zh-TW')+'）。')}catch(e){if(storageOK)toast('無法儲存語音偏好（瀏覽器可能停用了儲存空間），本次仍可使用');storageOK=false;markSaved('目前無法儲存偏好：關閉頁面後設定會消失。')}}
+const ok='speechSynthesis' in window&&'SpeechSynthesisUtterance' in window;
+if(!ok)document.body.classList.add('no-tts');
+const css=document.createElement('style');css.id='yingge-v75-css';css.textContent=`
+#tts{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(76px + env(safe-area-inset-bottom,0px));z-index:3500;background:#173c35;color:#fff;border-radius:16px;padding:8px 10px;display:flex;flex-direction:column;gap:6px;width:min(96vw,640px);box-shadow:0 4px 18px #0006}
+#tts[hidden]{display:none}
+#tts .ttsRow{display:flex;gap:6px;align-items:center}
+#tts .ttsText{flex:1;min-width:0;font-size:13px;line-height:1.35;max-height:2.7em;overflow:hidden}
+#tts button{min-height:44px;min-width:44px;padding:4px 8px;border:0;background:#2a5b50;color:#fff;border-radius:10px;font-size:18px}
+#tts button:hover{background:#38776a}
+#tts select{flex:1;min-width:0;min-height:44px;border-radius:10px;border:0;padding:0 4px;font-size:14px;background:#fff;color:#173c35}
+@media(min-width:701px){#tts{bottom:18px}}
+.pageSpeak{margin:0 0 10px;text-align:right}
+body.no-tts [data-speak],body.no-tts .pageSpeak{display:none!important}
+button[data-speak][aria-pressed=true]{background:#173c35;color:#fff;border-color:#173c35}
+.speakBtn{margin-left:auto}
+.tts-hl{background:#fff1a8!important;outline:3px solid #f2b705;outline-offset:2px;border-radius:8px;transition:background .2s;scroll-margin:90px 0 170px}
+tr.tts-hl td{background:#fff1a8!important}
+#ttsAdv fieldset{border:1px solid var(--line);border-radius:12px;margin:10px 0;padding:10px}
+#ttsAdv legend{font-weight:700;padding:0 6px}
+#ttsAdv label{display:block;margin:8px 0;font-size:14px}
+#ttsAdv .linkrow a{display:inline-block;margin:4px 10px 4px 0}
+body.ls-mode header,body.ls-mode footer,body.ls-mode nav.top,body.ls-mode .bottom{display:none!important}
+body.ls-mode{padding-bottom:0!important}
+body.ls-map{overflow:hidden}
+body.ls-map main,body.ls-map .v71-compact{display:none!important}
+body.ls-other .v71-compact{display:flex!important;position:sticky;top:0;z-index:1300;align-items:center;gap:6px;padding:5px 8px;background:#fff;border-bottom:1px solid var(--line);min-height:48px}
+body.ls-other .v71-compact select{min-height:40px;padding:4px 6px;min-width:0;max-width:150px}body.ls-other .v71-compact button{min-height:40px;padding:4px 10px}
+body.ls-other main{padding:6px 10px 24px!important}
+body.ls-mode #tts{bottom:70px;left:calc(50% + 29px);width:min(72vw,640px)}
+#ls{position:fixed;left:0;top:0;right:0;height:var(--v71-vh,100vh);z-index:1400;display:flex;background:#dfe9ee;padding-left:env(safe-area-inset-left,0px);padding-right:env(safe-area-inset-right,0px)}
+#ls[hidden]{display:none}
+.lsRail{flex:0 0 58px;display:flex;flex-direction:column;align-items:center;gap:8px;padding:8px 4px;background:#155c50}
+.lsRail button{min-height:48px;width:48px;padding:0;font-size:22px;border-radius:12px;background:#ffffff26;color:#fff;border:0}
+.lsRail button:hover{background:#ffffff40}
+.lsRail button[aria-pressed=true],.lsRail button[aria-expanded=true]{background:#fff;color:#155c50}
+.lsRail button:last-child{margin-top:auto}
+.lsMapWrap{position:relative;flex:1;min-width:0}
+.lsMap{position:absolute;inset:0}
+.lsDays{position:absolute;top:8px;left:56px;right:64px;z-index:900;display:flex;gap:6px;overflow-x:auto;pointer-events:none;padding:2px}
+.lsDays button{pointer-events:auto;flex:0 0 auto;min-height:40px;min-width:52px;padding:2px 14px;border-radius:999px;background:#fffffff2;border:0;box-shadow:0 1px 6px #0005;font-weight:600}
+.lsDays button.active{background:#155c50;color:#fff}
+.lsBottom{position:absolute;left:8px;right:8px;bottom:8px;z-index:900;display:flex;gap:6px;align-items:center;background:#fffffff2;border-radius:16px;padding:5px;box-shadow:0 2px 12px #0006}
+.lsBottom button{min-height:48px;min-width:56px;font-size:18px}
+.lsNow{flex:1;min-width:0;cursor:pointer;line-height:1.3;padding:0 4px}
+.lsNow b,.lsNow small{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#ls.panelOpen .lsBottom{right:calc(min(340px,44vw) + 8px)}
+.lsPanel{position:absolute;top:0;right:0;bottom:0;width:min(340px,44vw);background:#fff;z-index:950;box-shadow:-3px 0 14px #0005;display:flex;flex-direction:column;overflow:hidden}
+.lsPanel[hidden]{display:none}
+.lsHead{display:flex;justify-content:space-between;align-items:center;padding:6px 8px;background:#edf4f1}
+.lsHead button{min-height:44px;min-width:44px}
+.lsPanel input[type=search]{margin:6px 8px;width:calc(100% - 16px);min-height:44px}
+.lsList{flex:1;min-height:80px;overflow:auto;padding:0 8px;overscroll-behavior:contain}
+.lsInfo{max-height:46%;overflow:auto;margin:0;padding:8px;font-size:13px;overscroll-behavior:contain}
+.lsInfo h3{font-size:15px}.lsInfo p{margin:3px 0}
+.lsInfo .btn,.lsInfo button{min-height:40px;font-size:13px;padding:4px 8px}
+.lsMenu{position:absolute;left:8px;bottom:8px;z-index:960;width:min(380px,62vw);max-height:calc(100% - 16px);overflow:auto;background:#fff;border-radius:14px;padding:10px;box-shadow:0 3px 16px #0007}
+.lsMenu[hidden]{display:none}
+#lsMenu .mapbar{display:block!important}#lsMenu .mapbar .bar{flex-wrap:wrap!important;overflow:visible!important}#lsMenu .mapbar p{display:block!important;font-size:12px}
+#lsMenu .bar{margin-bottom:8px}
+#ls .leaflet-bottom{margin-bottom:62px}#ls .maplibregl-ctrl-bottom-left,#ls .maplibregl-ctrl-bottom-right{margin-bottom:62px}#ls .ol-attribution{bottom:62px}
+#ls.panelOpen .leaflet-right,#ls.panelOpen .maplibregl-ctrl-top-right{margin-right:calc(min(340px,44vw))}
+body.v71-keyboard #ls .lsBottom,body.v71-keyboard #ls .lsDays{display:none}
+body.v71-keyboard #ls .lsPanel{width:min(420px,60vw)}
+body.v71-keyboard #ls .lsInfo{display:none}
+@media(prefers-reduced-motion:reduce){#ls *{transition:none!important;animation:none!important}}
+`;document.head.appendChild(css);
+
+/* ===== 狀態 ===== */
+const T={q:[],i:-1,st:'idle',tok:0,driving:false,label:'',key:'',lang:'zh',eng:'device',redo:null,lastAuto:{id:'',t:0},warned:{},startedAt:0,retry:0,tlBroken:false,waiting:0};
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+const voices=()=>ok?speechSynthesis.getVoices():[];
+const voiceFor=k=>O.voices[k]||'';
+const zhScore=v=>/^zh[-_]TW/i.test(v.lang)?3:/^zh[-_]HK/i.test(v.lang)?2:/^zh/i.test(v.lang)?1:0;
+function candidates(kind){const c=voices().filter(v=>langKind(v)===kind);if(kind==='zh')c.sort((a,b)=>zhScore(b)-zhScore(a));return c}
+const simMul=g=>g==='m'?0.8:(g==='f'?1.2:1);
+function resolveVoice(kind){
+ const c=candidates(kind),g=O.gender;
+ if(!c.length)return{voice:null,pitchMul:g==='auto'?1:simMul(g),sim:g!=='auto',cands:0,vg:''};
+ const want=voiceFor(kind);let v=want?c.find(x=>x.voiceURI===want||x.name===want):null;
+ if(v){const vg=genderOf(v),need=g!=='auto'&&vg!==g;return{voice:v,pitchMul:need?simMul(g):1,sim:need,cands:c.length,vg}}
+ if(g!=='auto'){v=c.find(x=>genderOf(x)===g);if(v)return{voice:v,pitchMul:1,sim:false,cands:c.length,vg:g}}
+ v=c[0];const vg=genderOf(v),need=g!=='auto'&&vg!==g;
+ return{voice:v,pitchMul:need?simMul(g):1,sim:need,cands:c.length,vg}
+}
+const devNan=()=>candidates('nan').length>0;
+const nanApiMode=()=>O.lang==='nan'&&!devNan()&&!O.ext.nan.url.trim()&&O.nanApi&&!T.tlBroken;
+function plan(kind){
+ const rv=resolveVoice(kind);
+ if(kind==='zh')return{eng:'device',rv,kind};
+ if(rv.voice)return{eng:'device',rv,kind};
+ if(O.ext[kind].url.trim())return{eng:'ext',rv:null,kind};
+ if(kind==='nan'&&O.nanApi&&!T.tlBroken)return{eng:'tl',rv:null,kind};
+ if(O.fallback==='zh')return{eng:'device',rv:resolveVoice('zh'),kind:'zh',fell:true};
+ return{eng:'none',kind};
+}
+function planFor(e){
+ if(e.via==='zh')return{eng:'device',rv:resolveVoice('zh'),kind:'zh'};
+ if(e.via==='tl'){if(O.nanApi&&!T.tlBroken)return{eng:'tl'};return{eng:'device',rv:resolveVoice('zh'),kind:'zh',useAlt:true}}
+ return plan(T.lang)
+}
+function describeVoice(){
+ const k=O.lang,r=resolveVoice(k),gl=O.gender==='f'?'女聲':O.gender==='m'?'男聲':'自動';
+ if(!r.voice){
+  if(k==='zh')return`${LNAME[k]}／${gl}：沒有偵測到可用語音，將使用裝置預設。`;
+  if(O.ext[k].url.trim())return`${LNAME[k]}／${gl}：裝置沒有${LNAME[k]}語音，將使用你設定的外部語音服務。`;
+  if(k==='nan'&&O.nanApi)return`台語／${gl}：裝置沒有台語語音，將用意傳科技「媠聲」公開服務唸站名（聲音由該服務決定，無法選性別與音調），其餘依設定。`;
+  return`${LNAME[k]}／${gl}：裝置沒有${LNAME[k]}語音。`+(O.fallback==='zh'?'將改用華語朗讀並提示。':'將不朗讀。')
+ }
+ return`${LNAME[k]}／${gl}：使用「${r.voice.name}」`+(r.vg?`（偵測為${r.vg==='f'?'女聲':'男聲'}）`:'（無法判斷性別）')+(r.sim?`，並以音調${O.gender==='m'?'調低':'調高'}近似${O.gender==='m'?'男聲':'女聲'}`:'')+'。'
+}
+
+/* ===== 文稿與段落（附高亮目標）===== */
+function stopText(s,lang){lang=lang||O.lang;if(lang!=='zh'){const sc=O.scripts[s.id]&&O.scripts[s.id][lang];if(sc&&sc.trim())return sc.trim()}
+ let t=`第${s.day+1}天，第${s.n}站，${nameOf(s)}。地址：${cleanAddr(s.address)}。`;t+=s.phone?`電話：${phoneSpeak(s.phone)}。`:'此地點沒有統一的店家電話。';if(O.notes){t+=`備註：${s.note}。`;if(s.approx)t+='地圖位置為概略座標，請以地址和農會通知為準。'}return t}
+function daySummary(d){const st=stops.filter(s=>s.day===d);return`第${d+1}天，${date(d).replace('/','月')}日，${titles[d]}。路線：${area[d].replace(/\s*→\s*/g,'，接著到')}。這一天共有${st.length}個站點。`}
+const dayExtra=d=>d===0?'晚餐與住宿：嘉義皇品國際酒店，名稱待確認。':d===1?'晚餐與住宿：台糖長榮酒店。':'晚餐在鶯歌，之後賦歸。';
+const plainVia=()=>nanApiMode()?(O.nanRest==='han'?'tl':'zh'):'auto';
+function stopListEls(id){return $$(`#stopList .stop[data-id="${id}"],#lsList .stop[data-id="${id}"]`)}
+function stopEls(id){const out=[...$$(`tr[data-stop="${id}"]`),...stopListEls(id)];$$(`[data-calstop="${id}"]`).forEach(b=>{const a=b.closest('article');if(a)out.push(a)});if(S.sel===id)['#ovInfo','#calInfo','#mxInfo','#lsInfo'].forEach(q=>{const x=$(q);if(x)out.push(x)});return out}
+function stopSegs(s){
+ const lab=`D${s.day+1}-${s.n} ${nameOf(s)}`,hl=()=>stopEls(s.id);
+ if(O.lang==='nan'&&nanApiMode()){
+  const user=O.scripts[s.id]&&O.scripts[s.id].nan&&O.scripts[s.id].nan.trim();
+  if(user)return[{t:user,via:'tl',stopId:s.id,label:lab,hl}];
+  const head=headTL(s);
+  if(head){const han=stopText(s,'zh'),rest=han.replace(/^第\d天，第\d站，[^。]*。/,'');
+   return[{t:head,via:'tl',alt:`第${s.day+1}天，第${s.n}站，${nameOf(s)}。`,stopId:s.id,label:lab,hl},{t:rest,via:O.nanRest==='han'?'tl':'zh',label:lab,hl}]}
+ }
+ return[{t:stopText(s),stopId:s.id,label:lab,hl}]
+}
+function mkEntries(text,o){const max=o.via==='tl'?(o.alt?200:60):110;return chunks(text,max).map((c,i)=>({text:c,stopId:o.stopId||'',label:o.label||'',first:i===0,via:o.via||'auto',alt:o.alt,hl:o.hl}))}
+function segEntries(segs,label){const out=[];segs.forEach(sg=>{const via=sg.via||plainVia();out.push(...mkEntries(sg.t,{stopId:sg.stopId,label:sg.label||label,hl:sg.hl,via,alt:sg.alt}))});return out}
+function segsOverview(){const segs=[{t:'台灣巡禮，行程全貌。鶯歌區農會一百一十五年度會員區域外觀摩，三天兩夜，共十四個具名地點。第一梯次是十月二十七日到二十九日，第二梯次是十一月二日到四日，兩個梯次行程相同，首日早上六點出發，逾時不候。',hl:'#overview .stats'}];[0,1,2].forEach(d=>segs.push({t:daySummary(d)+dayExtra(d),hl:`#allTimeline .timeline:nth-child(${d+1})`}));segs.push({t:'午餐餐廳待通知。路線只表示站點順序，不是實際行車道路；部分座標與店址仍待確認。',hl:'#overview .note'});return segs}
+function segsCal(){const ds=S.day<0?[0,1,2]:[S.day];const segs=[{t:`每日行程。目前選擇第${P.batch===0?'一':'二'}梯次。`,hl:'#cal .days'}];let idx=0;const art=k=>()=>[$$('#dayTimeline > article')[k]].filter(Boolean);ds.forEach(d=>{segs.push({t:daySummary(d)+dayExtra(d),hl:art(idx)});idx++;stops.filter(s=>s.day===d).forEach(s=>{segs.push({t:`第${s.n}站，${nameOf(s)}，${cleanAddr(s.address)}。`,hl:art(idx)});idx++})});return segs}
+function segsMapx(){const a=list('mapx'),sel=stops.find(x=>x.id===S.sel);const segs=[{t:`地圖互動。目前顯示${a.length}個地點。`,hl:'#count'}];a.forEach(s=>segs.push({t:`第${s.day+1}天第${s.n}站，${nameOf(s)}。`,hl:()=>stopListEls(s.id)}));if(sel)segs.push({t:`目前選取：${nameOf(sel)}，地址：${cleanAddr(sel.address)}。`,hl:()=>stopEls(sel.id)});return segs}
+function segsTable(){const a=list('table');return[{t:`地點、店址與電話。目前共${a.length}筆。`,hl:'#table h2'},...a.map(s=>({t:stopText(s),hl:`tr[data-stop="${s.id}"]`}))]}
+const BLOCK=/^(DIV|P|H[1-6]|LI|TR|TD|TH|ARTICLE|SECTION|TABLE|UL|OL|ASIDE|LABEL|SUMMARY|DETAILS|FIELDSET|LEGEND)$/;
+const SKIP='script,style,svg,select,input,textarea,button,output,.mapbar,.mapHost,.legend,.v71-layout,.days,.bar,a.btn[target],iframe,[data-nospeak],.pageSpeak,#costChart';
+function extractSegs(page){const root=$('#'+page);if(!root)return[];const items=[];
+ (function walk(n,blk,isRoot){if(n.nodeType===3){const t=n.nodeValue.replace(/\s+/g,' ').trim();if(t)items.push({t,el:blk});return}if(n.nodeType!==1)return;
+  if(!isRoot){if(n.hidden||n.matches(SKIP))return;const cs=getComputedStyle(n);if(cs.display==='none'||cs.visibility==='hidden')return}
+  const isB=BLOCK.test(n.tagName),nb=isB?n:blk;[...n.childNodes].forEach(c=>walk(c,nb,false));if(isB)items.push({sep:1})})(root,root,true);
+ const segs=[];let cur=null;for(const it of items){if(it.sep){cur=null;continue}if(cur&&cur.el===it.el)cur.t+=' '+it.t;else{cur={t:it.t,el:it.el};segs.push(cur)}}
+ return segs.map(s=>({t:normalizeNumbers(stripEmoji(ensurePunct(s.t))).trim(),hl:s.el})).filter(s=>s.t&&s.t!=='。')}
+
+/* ===== 同步高亮與捲動 ===== */
+let hlEls=[];
+const isVis=e=>e&&e.isConnected&&e.getClientRects().length>0;
+function clearHl(){hlEls.forEach(e=>e.classList.remove('tts-hl'));hlEls=[]}
+function inZone(el){const r=el.getBoundingClientRect(),vh=window.visualViewport?visualViewport.height:innerHeight;return r.top>=70&&r.bottom<=vh-170}
+function applyHl(e,noScroll){clearHl();if(!O.hl||!e||!e.hl)return;let els=[];try{const h=e.hl;els=typeof h==='function'?h():(typeof h==='string'?$$(h):(h instanceof Element?[h]:[]))}catch(x){}
+ els=(els||[]).filter(isVis);els.forEach(x=>x.classList.add('tts-hl'));hlEls=els;
+ if(!noScroll&&O.scroll&&els.length&&document.visibilityState==='visible'){const el=els[0];if(!inZone(el))el.scrollIntoView({block:'center',inline:'nearest',behavior:(P.motion||matchMedia('(prefers-reduced-motion:reduce)').matches)?'auto':'smooth'})}}
+
+/* ===== 背景保活／鎖定畫面控制／螢幕常亮 ===== */
+let audio=null,keep=null,wl=null;
+const getAudio=()=>audio||(audio=new Audio());
+const SILENT='data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQAAAAA=';
+function audioStop(){if(!audio)return;try{audio.onended=null;audio.onerror=null;audio.pause();audio.removeAttribute('src');audio.load()}catch(e){}}
+function startKeep(){if(!O.keep)return;try{if(!keep){keep=new Audio(URL.createObjectURL(silentWav(2)));keep.loop=true;keep.setAttribute('playsinline','');keep.volume=1}keep.play().catch(()=>{})}catch(e){}}
+function stopKeep(){try{keep&&keep.pause()}catch(e){}}
+async function wakeOn(){if(!O.wake||!('wakeLock' in navigator)||document.visibilityState!=='visible'||wl)return;try{wl=await navigator.wakeLock.request('screen');wl.addEventListener('release',()=>{wl=null})}catch(e){wl=null}}
+function wakeOff(){try{wl&&wl.release()}catch(e){}wl=null}
+const MS='mediaSession' in navigator;
+function msMeta(){if(!MS||typeof MediaMetadata==='undefined')return;try{navigator.mediaSession.metadata=new MediaMetadata({title:T.label||'語音朗讀',artist:'鶯歌農會觀摩活動',album:LNAME[O.lang]+'朗讀'})}catch(e){}}
+function msState(){if(!MS)return;try{navigator.mediaSession.playbackState=T.st==='playing'?'playing':(T.st==='paused'?'paused':'none')}catch(e){}}
+if(MS){const set=(a,f)=>{try{navigator.mediaSession.setActionHandler(a,f)}catch(e){}};set('play',()=>{if(T.st==='paused')resume()});set('pause',()=>{if(T.st==='playing')pause()});set('previoustrack',()=>jump(-1));set('nexttrack',()=>jump(1));set('stop',()=>stopAll())}
+
+/* ===== UI ===== */
+function entriesFor(text,stopId,label){return mkEntries(text,{stopId,label,via:plainVia()})}
+function ui(){const sp=T.st!=='idle',box=$('#tts');box.hidden=!sp;
+ if(sp){const wait=T.waiting>0?`（公開台語服務限速，等待 ${T.waiting} 秒）`:'';$('#ttsText').textContent=(T.st==='paused'?'已暫停：':'正在朗讀：')+LNAME[O.lang]+'・'+T.label+wait;const p=$('#ttsPlay');p.textContent=T.st==='playing'?'⏸':'▶';p.setAttribute('aria-label',T.st==='playing'?'暫停':'繼續')}
+ $$('[data-speak]').forEach(b=>{const v=b.dataset.speak;const on=sp&&(v===T.key||(v==='scope'&&!['guide','test','page'].includes(T.key)));b.setAttribute('aria-pressed',String(on))});
+ const setv=(id,val)=>{const e=$(id);if(!e)return;if([...e.options].some(o=>o.value===String(val)))e.value=String(val)};
+ setv('#ttsLangQ',O.lang);setv('#ttsGenderQ',O.gender);setv('#ttsRate',O.rate);
+ const pq=$('#ttsPitchQ');if(pq){let best=pq.options[0].value,bd=9;[...pq.options].forEach(o=>{const d=Math.abs(+o.value-O.pitch);if(d<bd){bd=d;best=o.value}});pq.value=best}
+ msState()}
+function follow(id){if(!O.follow||typeof select!=='function')return;T.driving=true;try{select(id,true)}finally{T.driving=false}}
+function releaseAll(){audioStop();stopKeep();wakeOff();clearHl();T.waiting=0;msState()}
+function finish(){T.tok++;releaseAll();T.q=[];T.i=-1;T.st='idle';T.key='';T.redo=null;ui()}
+function stopAll(){T.tok++;if(ok)speechSynthesis.cancel();releaseAll();T.q=[];T.i=-1;T.st='idle';T.key='';T.redo=null;ui()}
+function noEngineHelp(){toast(O.lang==='hak'?'客語目前沒有免費公開的語音服務（客委會 API 需申請核准、限政府機關／學校／公益團體）。可安裝裝置客語語音、自備服務，或使用官方網站。':`裝置沒有${LNAME[O.lang]}語音，也未設定服務。可到「設定→語音朗讀」設定，或使用官方網站。`)}
+
+/* ===== 播放 ===== */
+function playAt(i,keepRetry){
+ if(i<0||i>=T.q.length){finish();return}
+ if(!keepRetry)T.retry=0;
+ T.i=i;const e=T.q[i],my=++T.tok,p=planFor(e);T.startedAt=Date.now();
+ if(p.eng==='none'){stopAll();noEngineHelp();return}
+ if(p.eng==='ext'){T.eng='ext';if(ok)speechSynthesis.cancel();playExt(i,e,my);return}
+ if(p.eng==='tl'){T.eng='ext';if(ok)speechSynthesis.cancel();playTl(i,e,my);return}
+ T.eng='device';audioStop();
+ if(!ok){stopAll();toast('此瀏覽器不支援語音朗讀');return}
+ const text=(p.useAlt&&e.alt)?e.alt:e.text,u=new SpeechSynthesisUtterance(text),v=p.rv&&p.rv.voice;
+ if(v){u.voice=v;u.lang=v.lang}else u.lang='zh-TW';
+ u.rate=O.rate;u.pitch=clamp(O.pitch*((p.rv&&p.rv.pitchMul)||1),0.1,2,1);u.volume=O.volume;
+ u.onstart=()=>{if(my!==T.tok)return;T.st='playing';T.waiting=0;ui();if(e.first&&e.stopId)follow(e.stopId);applyHl(e)};
+ u.onend=()=>{if(my!==T.tok)return;playAt(i+1)};
+ u.onerror=ev=>{if(my!==T.tok)return;if(ev.error==='canceled'||ev.error==='interrupted')return;if(T.retry<2){T.retry++;setTimeout(()=>{if(my===T.tok)playAt(i,true)},300);return}stopAll();toast('語音朗讀失敗：'+(ev.error||'未知錯誤'))};
+ T.st='playing';ui();
+ if(speechSynthesis.speaking||speechSynthesis.pending){speechSynthesis.cancel();setTimeout(()=>{if(my===T.tok)speechSynthesis.speak(u)},60)}else speechSynthesis.speak(u);
+}
+const tlTimes=[];
+async function waitSlot(my){let w=tlWait(tlTimes,Date.now());while(w>0){if(my!==T.tok)return false;T.waiting=Math.ceil(w/1000);ui();await sleep(Math.min(w,1000));w=tlWait(tlTimes,Date.now())}T.waiting=0;ui();return my===T.tok}
+async function playTl(i,e,my){
+ try{
+  if(!(await waitSlot(my)))return;
+  const au=getAudio();au.onended=()=>{if(my!==T.tok)return;playAt(i+1)};au.onerror=()=>{if(my!==T.tok)return;tlFail(i,'音檔載入失敗')};
+  au.src='https://hapsing.ithuan.tw/bangtsam?taibun='+encodeURIComponent(e.text);au.playbackRate=clamp(O.rate,.5,2,1);au.volume=O.volume;
+  tlTimes.push(Date.now());await au.play();
+  if(my===T.tok){T.st='playing';ui();if(e.first&&e.stopId)follow(e.stopId);applyHl(e)}
+ }catch(err){if(my!==T.tok)return;tlFail(i,err&&err.message?err.message:'播放失敗')}
+}
+function tlFail(i,msg){T.tlBroken=true;toast('公開台語語音服務暫時無法使用（'+msg+'），本次改用華語朗讀');playAt(i,true)}
+async function fetchAudio(kind,text,signal){
+ const cfg=O.ext[kind],ctx={lang:kind,dialect:kind==='hak'?O.hakka:'taigi',gender:O.gender,speed:O.rate,pitch:O.pitch};
+ let u;try{u=new URL(fill(cfg.url,text,ctx,false))}catch(e){throw Error('服務網址格式不正確')}
+ if(!(u.protocol==='https:'||(u.protocol==='http:'&&/^(localhost|127\.0\.0\.1)$/.test(u.hostname))))throw Error('服務網址必須使用 HTTPS');
+ const headers={},a=(cfg.auth||'').trim();
+ if(a){const k=a.indexOf(':');if(k>0&&!/\s/.test(a.slice(0,k)))headers[a.slice(0,k).trim()]=a.slice(k+1).trim();else headers.Authorization=a}
+ const init={method:cfg.method==='POST'?'POST':'GET',headers,signal,cache:'no-store',credentials:'omit',referrerPolicy:'no-referrer'};
+ if(init.method==='POST'){headers['Content-Type']='application/json';init.body=fill(cfg.body||'{"text":"{text}"}',text,ctx,true)}
+ const r=await fetch(u.href,init);if(!r.ok)throw Error('服務回應 HTTP '+r.status);
+ const ct=r.headers.get('content-type')||'';
+ if(/json/i.test(ct)){const j=await r.json(),b64=j.audioContent||j.audio_content||j.audio,link=j.audio_url||j.url;
+  if(typeof b64==='string'&&b64){const bin=atob(b64.replace(/^data:[^,]*,/,'')),arr=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)arr[i]=bin.charCodeAt(i);return new Blob([arr],{type:j.mime||(b64.startsWith('UklGR')?'audio/wav':'audio/mpeg')})}
+  if(typeof link==='string'&&/^https:/i.test(link)){const rr=await fetch(link,{signal,cache:'no-store',credentials:'omit'});if(!rr.ok)throw Error('音檔 HTTP '+rr.status);return await rr.blob()}
+  throw Error('JSON 回應中找不到 audioContent 或 audio_url')}
+ const blob=await r.blob();if(!blob.size)throw Error('服務回傳空白音檔');return blob
+}
+async function playExt(i,e,my){
+ const ctl=new AbortController(),tm=setTimeout(()=>ctl.abort(),20000);
+ try{
+  const blob=await fetchAudio(T.lang,e.text,ctl.signal);clearTimeout(tm);if(my!==T.tok)return;
+  const au=getAudio(),url=URL.createObjectURL(blob);if(T.audioURL)URL.revokeObjectURL(T.audioURL);T.audioURL=url;
+  au.onended=()=>{if(my!==T.tok)return;playAt(i+1)};au.onerror=()=>{if(my!==T.tok)return;extFail('音檔無法播放')};
+  au.src=url;au.playbackRate=clamp(O.rate,.5,2,1);au.volume=O.volume;await au.play();
+  if(my===T.tok){T.st='playing';ui();if(e.first&&e.stopId)follow(e.stopId);applyHl(e)}
+ }catch(err){clearTimeout(tm);if(my!==T.tok)return;extFail(err.name==='AbortError'?'連線逾時':err.message)}
+}
+function extFail(msg){toast(`${LNAME[T.lang]}語音服務失敗：${msg}`);if(O.fallback==='zh'&&T.lang!=='zh'){T.lang='zh';toast(`${LNAME[O.lang]}服務失敗，改用華語朗讀剩餘內容`);playAt(T.i,true)}else stopAll()}
+function pause(){if(T.st!=='playing')return;T.tok++;if(T.eng==='ext'&&audio){try{audio.pause()}catch(e){}}else if(ok)speechSynthesis.cancel();T.st='paused';ui()}
+function resume(){if(T.st!=='paused')return;startKeep();wakeOn();
+ if(T.eng==='ext'&&audio&&audio.src&&!audio.ended&&audio.currentTime>0){const my=++T.tok,i=T.i;audio.onended=()=>{if(my!==T.tok)return;playAt(i+1)};audio.play().then(()=>{T.st='playing';ui()}).catch(()=>playAt(T.i))}else playAt(T.i)}
+function jump(dir){if(!T.q.length)return;let j=-1;
+ if(dir>0){for(let k=T.i+1;k<T.q.length;k++)if(T.q[k].first&&T.q[k].stopId){j=k;break}if(j<0){finish();return}}
+ else{let cur=-1;for(let k=T.i;k>=0;k--)if(T.q[k].first&&T.q[k].stopId){cur=k;break}const from=(cur>=0&&T.i>cur)?cur:cur-1;for(let k=from;k>=0;k--)if(T.q[k].first&&T.q[k].stopId){j=k;break}if(j<0)j=0}
+ playAt(j)}
+function start(entries,label,key,redo){
+ if(!entries.length)return;
+ T.lang=O.lang;T.tlBroken=false;const p=planFor(entries[0]);
+ if(p.eng==='none'){noEngineHelp();return}
+ if(p.eng==='device'&&!ok){toast('此瀏覽器不支援語音朗讀');return}
+ if(p.fell&&!T.warned[O.lang]){T.warned[O.lang]=1;toast(O.lang==='hak'?'客語：裝置沒有客語語音，且客委會 API 需申請核准，改用華語朗讀。':`裝置沒有${LNAME[O.lang]}語音，改用華語朗讀。可到設定加入外部語音服務。`)}
+ if(O.lang==='nan'&&entries.some(e=>e.via==='tl')&&!T.warned.nanApi){T.warned.nanApi=1;toast('台語使用意傳科技公開服務（站名）；該服務每分鐘約 3 句，會自動排隊，其餘內容用華語朗讀。')}
+ if(p.eng==='ext'||p.eng==='tl'||entries.some(e=>e.via==='tl')){try{const au=getAudio();au.src=SILENT;au.play().catch(()=>{})}catch(e){}}
+ const vs=voices();if(!T.warned.zh&&p.eng==='device'&&p.kind==='zh'&&vs.length&&!vs.some(v=>langKind(v)==='zh')){T.warned.zh=1;toast('找不到中文語音，將使用裝置預設語音，聲音可能不是中文')}
+ T.q=entries;T.label=label;T.key=key;T.redo=redo||null;msMeta();startKeep();wakeOn();playAt(0)}
+
+/* ===== 朗讀入口 ===== */
+function speakStop(id){const s=stops.find(x=>x.id===id);if(!s)return;const lab=`D${s.day+1}-${s.n} ${nameOf(s)}`;start(segEntries(stopSegs(s),lab),lab,id,()=>speakStop(id))}
+function speakDay(d){const segs=[{t:daySummary(d)+dayExtra(d),label:`第${d+1}天摘要`,hl:`#allTimeline .timeline:nth-child(${d+1})`}];stops.filter(s=>s.day===d).forEach(s=>segs.push(...stopSegs(s)));start(segEntries(segs,''),`第${d+1}天行程（逐站）`,'day',()=>speakDay(d))}
+function speakOverview(){start(segEntries(segsOverview(),'三天行程全貌'),'三天行程全貌','day',speakOverview)}
+const PAGE_LABEL={overview:'巡禮全貌',cal:'每日行程',mapx:'地圖互動',table:'地點表',guide:'行前與費用',settings:'設定'};
+function speakPage(page){page=page||S.page;const lab=PAGE_LABEL[page]||'本頁';let segs;
+ if(page==='overview')segs=segsOverview();else if(page==='cal')segs=segsCal();else if(page==='mapx')segs=segsMapx();else if(page==='table')segs=segsTable();else segs=extractSegs(page);
+ if(!segs.length){toast('這一頁沒有可朗讀的內容');return}
+ start(segEntries(segs,lab),'本頁：'+lab,'page',()=>speakPage(page))}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-speak]');if(!b)return;const v=b.dataset.speak;
+ if(T.st!=='idle'&&T.key===v&&v!=='scope'){stopAll();return}
+ if(v==='scope'){if(T.st!=='idle'&&T.key===(S.sel||'day')){stopAll();return}if(S.sel)speakStop(S.sel);else if(S.day<0)speakOverview();else speakDay(S.day)}
+ else if(v==='day'){if(S.day<0)speakOverview();else speakDay(S.day)}
+ else if(v==='page')speakPage(S.page);
+ else if(v==='guide')speakPage('guide');
+ else speakStop(v)});
+$('#ttsPlay').onclick=()=>{if(T.st==='playing')pause();else if(T.st==='paused')resume()};
+$('#ttsStop').onclick=stopAll;$('#ttsPrev').onclick=()=>jump(-1);$('#ttsNext').onclick=()=>jump(1);
+const restartChunk=()=>{if(T.st==='playing')playAt(T.i)};
+function setLang(v){if(!LNAME[v])return;O.lang=v;store();syncSettings();fillVoices();ui();if(T.st!=='idle'&&T.redo){const r=T.redo;stopAll();r()}}
+$('#ttsLangQ').onchange=e=>setLang(e.target.value);
+$('#ttsGenderQ').onchange=e=>{O.gender=e.target.value;store();syncSettings();fillVoices();restartChunk()};
+$('#ttsPitchQ').onchange=e=>{O.pitch=Number(e.target.value);store();syncSettings();restartChunk()};
+$('#ttsRate').onchange=e=>{O.rate=Number(e.target.value);store();syncSettings();restartChunk()};
+window.addEventListener('yingge:select',ev=>{const id=ev.detail.id;if(O.auto&&ok&&!T.driving){const n=Date.now();if(T.lastAuto.id===id&&n-T.lastAuto.t<2000)return;T.lastAuto={id,t:n};speakStop(id)}});
+window.addEventListener('yingge:day',()=>{if(!T.driving&&T.st!=='idle')stopAll()});
+window.addEventListener('yingge:render',()=>{ui();if(T.st!=='idle'&&T.q[T.i])applyHl(T.q[T.i],true)});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&T.st!=='idle'&&$('#more').hidden&&$('#ls').hidden)stopAll()});
+
+/* ===== 背景／切換分頁中斷的復原 ===== */
+function recover(){if(T.st==='playing'&&T.eng==='device'&&ok&&!speechSynthesis.speaking&&!speechSynthesis.pending&&Date.now()-T.startedAt>1500){if(T.retry>=2){stopAll();toast('語音被系統中斷且無法自動恢復，請再按一次朗讀');return}T.retry++;playAt(T.i,true)}
+ else if(T.st==='playing'&&T.eng==='ext'&&audio&&audio.paused&&!audio.ended&&audio.src&&Date.now()-T.startedAt>1500){audio.play().catch(()=>{})}}
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'){if(T.st!=='idle'){startKeep();wakeOn();recover();if(T.q[T.i])applyHl(T.q[T.i],true)}}});
+window.addEventListener('pageshow',()=>{if(T.st!=='idle')recover()});
+setInterval(()=>{if(T.st==='playing')recover()},1500);
+document.addEventListener('keydown',()=>{},{passive:true});
+
+/* ===== 每一頁都有「朗讀本頁」 ===== */
+$$('main>section').forEach(sec=>{const d=document.createElement('div');d.className='pageSpeak';d.dataset.nospeak='';d.innerHTML='<button type="button" data-speak="page" aria-pressed="false">🔊 朗讀本頁</button>';sec.prepend(d)});
+
+/* ===== 設定頁 ===== */
+function fillVoices(){const sel=$('#ttsVoice');if(!sel)return;const kind=O.lang,cand=candidates(kind);
+ sel.innerHTML='<option value="">自動</option>'+cand.map(v=>`<option value="${esc(v.voiceURI)}">${esc(v.name)}（${esc(v.lang)}${genderOf(v)?(genderOf(v)==='f'?'・女':'・男'):''}）</option>`).join('')+(!cand.length&&kind!=='zh'?`<option value="" disabled>（裝置沒有${LNAME[kind]}語音）</option>`:'');
+ sel.value=voiceFor(kind);if(voiceFor(kind)&&sel.value!==voiceFor(kind))sel.value='';
+ const all=voices(),has=k=>all.some(v=>langKind(v)===k);
+ $('#ttsSupport').textContent=!ok?'此瀏覽器不支援語音朗讀（Web Speech API）；仍可使用公開台語服務與外部服務。':(!all.length?'尚未取得語音清單；部分瀏覽器需等待載入，或裝置沒有可用語音。':`裝置語音 ${all.length} 個：華語${has('zh')?'有':'無'}、台語${has('nan')?'有':'無'}、客語${has('hak')?'有':'無'}。`);
+ $('#ttsVoiceInfo').textContent=describeVoice()}
+function syncSettings(){
+ $('#ttsLang').value=O.lang;$('#hakkaWrap').hidden=O.lang!=='hak';$('#ttsHakka').value=O.hakka;$('#ttsGender').value=O.gender;
+ $('#ttsRateSet').value=O.rate;$('#ttsPitchSet').value=O.pitch;$('#ttsVolSet').value=O.volume;
+ $('#ttsRateOut').textContent=O.rate.toFixed(1)+'×';$('#ttsPitchOut').textContent=O.pitch.toFixed(2);$('#ttsVolOut').textContent=Math.round(O.volume*100)+'%';
+ $('#ttsFallback').value=O.fallback;$('#ttsNanApi').checked=O.nanApi;$('#ttsNanRest').value=O.nanRest;
+ $('#ttsHl').checked=O.hl;$('#ttsScroll').checked=O.scroll;$('#ttsKeep').checked=O.keep;$('#ttsWake').checked=O.wake;
+ $('#ttsAuto').checked=O.auto;$('#ttsFollow').checked=O.follow;$('#ttsNotes').checked=O.notes;$('#lsMode').value=O.ls;
+ const vi=$('#ttsVoiceInfo');if(vi)vi.textContent=describeVoice();ui()}
+if(ok){if(speechSynthesis.addEventListener)speechSynthesis.addEventListener('voiceschanged',()=>{fillVoices()});else speechSynthesis.onvoiceschanged=fillVoices;setTimeout(fillVoices,600)}
+$('#ttsLang').onchange=e=>setLang(e.target.value);
+$('#ttsHakka').onchange=e=>{O.hakka=e.target.value;store()};
+$('#ttsGender').onchange=e=>{O.gender=e.target.value;store();syncSettings();fillVoices();restartChunk()};
+$('#ttsVoice').onchange=e=>{O.voices[O.lang]=e.target.value;store();syncSettings();restartChunk()};
+$('#ttsRateSet').oninput=e=>{O.rate=Number(e.target.value);store();syncSettings()};
+$('#ttsPitchSet').oninput=e=>{O.pitch=Number(e.target.value);store();syncSettings()};
+$('#ttsVolSet').oninput=e=>{O.volume=Number(e.target.value);store();syncSettings()};
+$$('[data-pitch]').forEach(b=>b.onclick=()=>{O.pitch=Number(b.dataset.pitch);store();syncSettings();restartChunk()});
+const bindChk=(id,key,after)=>{$(id).onchange=e=>{O[key]=e.target.checked;store();if(after)after()}};
+$('#ttsFallback').onchange=e=>{O.fallback=e.target.value;store();syncSettings()};
+$('#ttsNanRest').onchange=e=>{O.nanRest=e.target.value;store()};
+bindChk('#ttsNanApi','nanApi',()=>{syncSettings()});bindChk('#ttsHl','hl',()=>{if(!O.hl)clearHl()});bindChk('#ttsScroll','scroll');
+bindChk('#ttsKeep','keep',()=>{if(T.st!=='idle'){O.keep?startKeep():stopKeep()}});bindChk('#ttsWake','wake',()=>{if(T.st!=='idle'){O.wake?wakeOn():wakeOff()}});
+bindChk('#ttsAuto','auto');bindChk('#ttsFollow','follow');bindChk('#ttsNotes','notes');
+$('#ttsTest').onclick=()=>{const segs=O.lang==='nan'&&nanApiMode()?[{t:tlDia('li2 ho2, tai5-uan5 bin5-hok8'),via:'tl',alt:'你好，這是台語朗讀測試。'}]:[{t:{zh:'你好，這是語音朗讀測試。鶯歌區農會觀摩活動。',nan:'你好，這是台語朗讀測試。鶯歌區農會觀摩活動。',hak:'你好，這是客語朗讀測試。鶯歌區農會觀摩活動。'}[O.lang]}];start(segEntries(segs,'語音測試'),'語音測試','test',null)};
+$('#lsMode').onchange=e=>{O.ls=e.target.value;store();applyLs()};
+$('#ttsExport').onclick=()=>{const o=JSON.parse(JSON.stringify(O));o.ext.nan.auth='';o.ext.hak.auth='';download(JSON.stringify({app:'yingge-tts',version:3,prefs:o},null,2),'tour-tts-prefs.json','application/json')};
+$('#ttsImport').onclick=()=>$('#ttsFile').click();
+$('#ttsFile').onchange=async e=>{try{const f=e.target.files[0];if(!f)return;const j=JSON.parse(await f.text());if(j.app!=='yingge-tts'||!j.prefs)throw Error('不是語音偏好檔');const n=sanitize({...JSON.parse(JSON.stringify(D75)),...j.prefs});
+ for(const k of['nan','hak']){const u=n.ext[k].url.trim();if(u){let good=false;try{const x=new URL(u.replace(/\{[a-z]+\}/g,'x'));good=x.protocol==='https:'||(x.protocol==='http:'&&/^(localhost|127\.0\.0\.1)$/.test(x.hostname))}catch(_){}if(!good)throw Error(LNAME[k]+'服務網址必須是 HTTPS')}n.ext[k].auth=O.ext[k].auth}
+ if(!confirm('將覆蓋目前的語音偏好（不含授權標頭）。確定匯入？'))return;stopAll();O=n;store();syncSettings();fillVoices();buildAdv();toast('已匯入語音偏好')}catch(err){toast('匯入失敗：'+err.message)}finally{e.target.value=''}};
+$('#ttsResetPrefs').onclick=()=>{if(!confirm('重設所有語音偏好（語言、速度、音調、性別、語音、外部服務與文稿）？'))return;stopAll();O=sanitize(JSON.parse(JSON.stringify(D75)));store();syncSettings();fillVoices();buildAdv()};
+addEventListener('storage',e=>{if(e.key!==KEY73)return;O=loadPrefs();syncSettings();fillVoices();buildAdv();ui()});
+
+/* ===== 進階：自備語音服務、逐站文稿、官方連結 ===== */
+const OFFICIAL={nan:[['意傳科技（鬥拍字／媠聲）','https://suisiann.ithuan.tw/'],['教育部本土語言資源網：台語AI機器人','https://mhi.moe.edu.tw/eduCloud/learning-resource/TSMhiResource-003270/?lang=/003/'],['Lohankha 台語翻譯（可轉台羅）','https://translate.lohankha.tw/']],hak:[['臺灣客語語音資料庫（語音合成）','https://speech.hakka.gov.tw/TTS/Synthesis'],['客委會 API 申請辦法','https://law.hakka.gov.tw/LawContent.aspx?id=GL000042'],['教育部多語翻譯器（華台客英日，Beta）','https://mhi.moe.edu.tw/eduCloud/learning-resource/TSMhiResource-003268/?lang=/003/']]};
+function buildAdv(){const box=$('#ttsAdv');box.innerHTML=`<p class="note">台語已內建「意傳科技公開服務」。客語沒有免費公開服務；若你的單位取得客委會 API 授權，請用自己的代理伺服器保管帳密，再把代理網址填在下方。授權標頭只存在這台裝置的瀏覽器，不是加密儲存。</p>`;
+ [['nan','台語（閩南語）：自備服務'],['hak','客語（客家話）：自備服務']].forEach(([k,name])=>{const f=document.createElement('fieldset');
+  f.innerHTML=`<legend>${name}</legend><label>服務網址模板<input type="text" id="ext-${k}-url" placeholder="https://你的代理/tts?text={text}&amp;gender={gender}${k==='hak'?'&amp;dialect={dialect}':''}" autocomplete="off"></label><label>請求方法<select id="ext-${k}-method"><option value="GET">GET</option><option value="POST">POST（JSON）</option></select></label><label>POST 內容模板<textarea id="ext-${k}-body" placeholder='{"text":"{text}","gender":"{gender}"${k==='hak'?',"dialect":"{dialect}"':''}}'></textarea></label><label>授權標頭（選填）<input type="password" id="ext-${k}-auth" placeholder="Bearer xxx 或 X-Api-Key: xxx" autocomplete="off"></label><div class="bar"><button type="button" data-extsave="${k}">儲存</button><button type="button" data-exttest="${k}">測試連線並播放</button><button type="button" data-official="${k}">複製文稿並開啟官方網站</button></div><div class="linkrow">${OFFICIAL[k].map(([n,u])=>`<a href="${u}" target="_blank" rel="noopener">${n}</a>`).join('')}</div>`;
+  box.appendChild(f);
+  $('#ext-'+k+'-url').value=O.ext[k].url;$('#ext-'+k+'-method').value=O.ext[k].method;$('#ext-'+k+'-body').value=O.ext[k].body;$('#ext-'+k+'-auth').value=O.ext[k].auth});
+ box.insertAdjacentHTML('beforeend',`<p class="muted">可用變數：{text}、{lang}（nan／hak）、{dialect}、{gender}（male／female／空白）、{speed}、{pitch}。回應可以是音檔，或 JSON 內的 audioContent（base64）／audio_url（HTTPS）；需允許 CORS。外部音檔不支援音調調整。</p><fieldset><legend>逐站台語／客語文稿（選填）</legend><p class="muted">台語（使用公開服務時）請貼「臺羅」，例如 <code>Tâi-lâm-tsi̍t-tsiah</code> 或數字調 <code>tai5-lam5</code>（本頁會轉成調符）。留空則站名使用內建臺羅草稿（建議請母語者校對）。</p><label>地點<select id="scrStop">${stops.map(s=>`<option value="${s.id}">D${s.day+1}-${s.n} ${esc(nameOf(s))}</option>`).join('')}</select></label><label>台語文稿<textarea id="scrNan"></textarea></label><label>客語文稿<textarea id="scrHak"></textarea></label><div class="bar"><button type="button" id="scrSave">儲存此站文稿</button><button type="button" id="scrClear">清除此站文稿</button></div></fieldset>`);
+ const loadScr=()=>{const id=$('#scrStop').value,sc=O.scripts[id]||{};$('#scrNan').value=sc.nan||'';$('#scrHak').value=sc.hak||'';$('#scrNan').placeholder='內建草稿：'+(headTL(stops.find(s=>s.id===id))||'（無）')};
+ $('#scrStop').onchange=loadScr;loadScr();
+ $('#scrSave').onclick=()=>{const id=$('#scrStop').value;let n=$('#scrNan').value.trim(),h=$('#scrHak').value.trim();if(/[A-Za-z]+[1-9]\b/.test(n))n=tlDia(n);if(!n&&!h)delete O.scripts[id];else O.scripts[id]={nan:n,hak:h};store();loadScr();toast('已儲存此站文稿')};
+ $('#scrClear').onclick=()=>{delete O.scripts[$('#scrStop').value];store();loadScr();toast('已清除此站文稿')};
+ const readExt=k=>{O.ext[k]={url:$('#ext-'+k+'-url').value.trim(),method:$('#ext-'+k+'-method').value,body:$('#ext-'+k+'-body').value,auth:$('#ext-'+k+'-auth').value}};
+ $$('[data-extsave]').forEach(b=>b.onclick=()=>{const k=b.dataset.extsave;readExt(k);store();syncSettings();fillVoices();toast(LNAME[k]+'服務設定已儲存')});
+ $$('[data-exttest]').forEach(b=>b.onclick=async()=>{const k=b.dataset.exttest;readExt(k);store();if(!O.ext[k].url){toast('請先填入服務網址');return}
+  const prev=T.lang;stopAll();b.disabled=true;try{const au=getAudio();au.src=SILENT;au.play().catch(()=>{});const ctl=new AbortController(),tm=setTimeout(()=>ctl.abort(),20000);const blob=await fetchAudio(k,'你好，這是測試。',ctl.signal);clearTimeout(tm);au.src=URL.createObjectURL(blob);await au.play();toast(LNAME[k]+'服務可用，正在播放測試音檔')}catch(err){toast(LNAME[k]+'服務測試失敗：'+(err.name==='AbortError'?'連線逾時':err.message))}finally{b.disabled=false;T.lang=prev}});
+ $$('[data-official]').forEach(b=>b.onclick=async()=>{const k=b.dataset.official,s=stops.find(x=>x.id===S.sel);const text=s?stopText(s,k):daySummary(S.day<0?0:S.day);try{await navigator.clipboard.writeText(text);toast('已複製文稿，請貼到官方語音合成網站')}catch(e){toast('無法自動複製，請手動複製文稿')}window.open(OFFICIAL[k][0][1],'_blank','noopener')})}
+buildAdv();fillVoices();syncSettings();
+markSaved(localStorage.getItem(KEY73)?'已載入先前儲存的語音偏好；調整後會自動儲存。':'尚未儲存偏好；調整語言、速度、音調或性別後會自動儲存在這台裝置。');
+
+/* ===== 手機橫向專屬版面 ===== */
+const ls=$('#ls');let lsView=null;
+const mapPage=()=>['overview','cal','mapx'].includes(S.page);
+function lsWanted(){if(O.ls==='off')return false;if(innerWidth<=innerHeight)return false;if(O.ls==='on')return true;return innerHeight<=560&&innerWidth<=1100&&matchMedia('(pointer:coarse)').matches}
+function lsDays(){const box=$('#lsDays');box.innerHTML='';[-1,0,1,2].forEach(d=>{const b=document.createElement('button');b.type='button';b.textContent=d<0?'全貌':`D${d+1}`;b.setAttribute('aria-label',d<0?'三天全貌':`第${d+1}天 ${date(d)}`);b.classList.toggle('active',S.day===d);b.setAttribute('aria-pressed',String(S.day===d));b.onclick=()=>day(d);box.appendChild(b)})}
+function lsNow(){const nb=$('#lsNow'),s=stops.find(x=>x.id===S.sel);if(!s){const n=list('mapx').length;nb.innerHTML=`<b>${S.day<0?'三天全貌':'第'+(S.day+1)+'天・'+esc(date(S.day))}</b><small>共 ${n} 站・點「▶」逐站瀏覽</small>`;return}nb.innerHTML=`<b>D${s.day+1}-${s.n} ${esc(nameOf(s))}</b><small>${esc(s.type)}${s.phone?'・'+esc(s.phone):''}</small>`}
+function renderLs(){lsDays();lsNow()}
+function lsStep(dir){const a=list('mapx');if(!a.length)return;let i=a.findIndex(s=>s.id===S.sel);i=i<0?(dir>0?0:a.length-1):(i+dir+a.length)%a.length;select(a[i].id,true)}
+function setPanel(open){const p=$('#lsPanel');p.hidden=!open;ls.classList.toggle('panelOpen',open);$('#lsPanelBtn').setAttribute('aria-pressed',String(open));requestAnimationFrame(()=>window.__yinggeScheduleResize&&window.__yinggeScheduleResize())}
+function setMenu(open){$('#lsMenu').hidden=!open;$('#lsMenuBtn').setAttribute('aria-expanded',String(open))}
+function applyLs(){
+ const want=lsWanted(),body=document.body,wasMap=body.classList.contains('ls-map');
+ const showMap=want&&mapPage();
+ body.classList.toggle('ls-mode',want);body.classList.toggle('ls-map',showMap);body.classList.toggle('ls-other',want&&!showMap);ls.hidden=!showMap;
+ if(showMap){
+  if(!lsView){lsView=new View('mapx','#lsMap');lsView.visible=()=>document.body.classList.contains('ls-map');views.ls=lsView}
+  renderLs();renderList();renderInfos();requestAnimationFrame(()=>lsView.ensure());
+ }else{
+  setMenu(false);
+  if(wasMap)requestAnimationFrame(()=>{Object.values(views).forEach(v=>v!==lsView&&v.visible()&&v.ensure());window.__yinggeScheduleResize&&window.__yinggeScheduleResize()});
+ }
+}
+$('#lsPanelBtn').onclick=()=>setPanel($('#lsPanel').hidden);$('#lsClose').onclick=()=>setPanel(false);
+$('#lsFit').onclick=()=>lsView&&lsView.fit();
+$('#lsMenuBtn').onclick=()=>setMenu($('#lsMenu').hidden);$('#lsMenuClose').onclick=()=>setMenu(false);
+$$('[data-lspage]').forEach(b=>b.onclick=()=>{setMenu(false);go(b.dataset.lspage)});
+$('#lsPrev').onclick=()=>lsStep(-1);$('#lsNext').onclick=()=>lsStep(1);
+$('#lsNow').onclick=()=>setPanel(true);$('#lsNow').onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();setPanel(true)}};
+$('#lsSearch').oninput=e=>{S.query=e.target.value.trim().toLowerCase();const mx=$('#search');if(mx)mx.value=e.target.value;renderList();lsNow();Object.values(views).forEach(v=>v.page==='mapx'&&v.map&&v.visible()&&v.draw())};
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!ls.hidden){if(!$('#lsMenu').hidden)setMenu(false);else if(!$('#lsPanel').hidden)setPanel(false)}});
+window.addEventListener('yingge:select',()=>{if(!ls.hidden)lsNow()});
+window.addEventListener('yingge:day',()=>{if(!ls.hidden)renderLs()});
+window.addEventListener('yingge:render',()=>{if(!ls.hidden)lsNow()});
+window.addEventListener('yingge:page',()=>applyLs());
+let lsTimer;const lsSoon=()=>{clearTimeout(lsTimer);lsTimer=setTimeout(applyLs,120)};
+addEventListener('resize',lsSoon,{passive:true});addEventListener('orientationchange',()=>setTimeout(applyLs,350),{passive:true});
+applyLs();
+})();
+</script>
+<!-- YINGGE_V75_END -->
+</body></html>
